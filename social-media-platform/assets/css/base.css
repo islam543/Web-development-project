@@ -1,0 +1,20 @@
+/* base.css - reset + variables + global styles */
+:root {
+  --bg: #fff;
+  --fg: #111;
+  --accent: #2b8cff;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family:
+    Segoe UI,
+    Arial,
+    sans-serif;
+  background: var(--bg);
+  color: var(--fg);
+}

@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Social Media - Home</title>
+    <link rel="stylesheet" href="assets/css/base.css" />
+    <script src="assets/js/config.js" defer></script>
+    <script>
+      // Redirect logic: if logged in go to feed, else to login
+      document.addEventListener("DOMContentLoaded", () => {
+        const user = localStorage.getItem("smp_currentUser");
+        if (user) location.replace("feed.html");
+        else location.replace("login.html");
+      });
+    </script>
+  </head>
+  <body></body>
+</html>

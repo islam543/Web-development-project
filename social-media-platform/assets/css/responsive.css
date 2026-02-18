@@ -1,0 +1,6 @@
+/* responsive.css - media queries */
+@media (max-width: 600px) {
+  .row {
+    flex-direction: column;
+  }
+}
