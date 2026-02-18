@@ -1,3 +1,48 @@
+/* Login */
+
+/* X Logo */
+.x-logo {
+  fill: var(--color-text-inverse);
+  width: 300px;
+}
+
+.auth-content h1 {
+  font-size: 64px;
+  font-weight: 800;
+  margin-bottom: 32px;
+  color: var(--color-text-inverse);
+}
+
+/* Form & Buttons */
+.auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 300px;
+}
+
+.btn-white {
+  background-color: #eff3f4;
+  color: #0f1419;
+  border: 1px solid rgba(0, 0, 0, 0);
+}
+
+.btn-white:hover {
+  background-color: #d7dbdc;
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 1px solid #536471;
+  color: var(--color-brand-accent);
+}
+
+.btn-outline:hover {
+  background-color: rgba(252, 163, 17, 0.1);
+}
+
+/* Main Feed */
+
 /* components.css - cards, buttons, inputs */
 .card {
   background: #fff;
@@ -18,4 +63,32 @@ textarea {
   padding: 8px;
   border: 1px solid #ddd;
   border-radius: 6px;
+}
+
+.followBtn {
+  background-color: var(--color-brand-accent);
+  color: var(--color-text-inverse);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#personal-post {
+  background-color: var(--color-brand-primary);
+  border-radius: 8px;
+  padding: 16px;
+  color: var(--color-text-primary);
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+#postInput {
+  width: 100%;
+  padding: 12px;
+  border-radius: 6px;
+  border: none;
+  margin-top: 10px;
+  font-size: 16px;
+  box-sizing: border-box;
 }

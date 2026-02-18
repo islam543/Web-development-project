@@ -1,22 +1,31 @@
-:root {
-  /* Base Surface */
-  --color-bg-base: #0a0a0a;
-  --color-bg-surface: #111;
-  /* Text */
-  --color-text-muted: #bbb;
-  --color-text-primary: #e5e5e5;
-  --color-text-inverse: #ffffff;
-
-  /* Brand */
-  --color-brand-primary: #14213d;
-  --color-brand-accent: #fca311;
+/* Login CSS */
+/* Layout for Auth pages only */
+.auth-page {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
+.auth-container {
+  display: flex;
+  width: 100%;
+  max-width: 1000px;
+  align-items: center;
+  gap: 100px;
 }
+
+@media (max-width: 768px) {
+  .auth-container {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .auth-logo .x-logo {
+    width: 50px;
+  }
+}
+
+/* Main */
 body {
   display: grid;
   grid-template-columns: 250px minmax(0, 600px) 250px;
@@ -29,14 +38,6 @@ body {
     Segoe UI,
     Arial,
     sans-serif;
-}
-
-#nav-bar a {
-  display: block;
-  color: var(--color-text-muted);
-  text-decoration: none;
-  padding: 6px 8px;
-  border-radius: 6px;
 }
 
 #nav-bar a:hover {
@@ -59,32 +60,4 @@ header {
 
 main {
   padding: 20px;
-}
-
-.followBtn {
-  background-color: var(--color-brand-accent);
-  color: var(--color-text-inverse);
-  border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-#personal-post {
-  background-color: var(--color-brand-primary);
-  border-radius: 8px;
-  padding: 16px;
-  color: var(--color-text-primary);
-  max-width: 600px;
-  margin: 0 auto;
-}
-
-#postInput {
-  width: 100%;
-  padding: 12px;
-  border-radius: 6px;
-  border: none;
-  margin-top: 10px;
-  font-size: 16px;
-  box-sizing: border-box;
 }

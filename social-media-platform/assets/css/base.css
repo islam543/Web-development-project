@@ -1,20 +1,28 @@
-/* base.css - reset + variables + global styles */
+/* CSS Variables for easy updates */
 :root {
-  --bg: #fff;
-  --fg: #111;
-  --accent: #2b8cff;
+  /* Base Surface */
+  --color-bg-base: #0a0a0a;
+  --color-bg-surface: #111;
+  /* Text */
+  --color-text-muted: #bbb;
+  --color-text-primary: #e5e5e5;
+  --color-text-inverse: #ffffff;
+
+  /* Brand */
+  --color-brand-primary: #14213d;
+  --color-brand-accent: #fca311;
 }
-* {
-  box-sizing: border-box;
-}
+
 html,
 body {
   height: 100%;
   margin: 0;
-  font-family:
-    Segoe UI,
-    Arial,
-    sans-serif;
-  background: var(--bg);
-  color: var(--fg);
+}
+
+#nav-bar a {
+  display: block;
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: 6px 8px;
+  border-radius: 6px;
 }
