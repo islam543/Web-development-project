@@ -12,9 +12,50 @@
   </head>
   <body>
     <header>
-      <a href="profile.html">Profile</a> |
-      <a href="#" id="logoutLink">Logout</a>
+      <div id="logoutProfile">
+        <a href="profile.html">Profile</a> |
+        <a href="#" id="logoutLink">Logout</a>
+      </div>
+      <nav id="nav-bar">
+        <a href="feed.html">Home</a>
+        <a href="explore.html">Explore</a>
+        <a href="messages.html">Messages</a>
+        <a href="newPost.html">New Post</a>
+        <a href="settings.html">settings</a>
+      </nav>
     </header>
-    <main id="feed"></main>
+
+    <main>
+      <div id="personal-post">
+        <h2>Alex Johnson</h2>
+        <input type="text" placeholder="What's on your mind?" id="postInput" />
+      </div>
+      <div id="feed">
+        <div id="postsContainer">
+          <p>Alex Johnson</p>
+          <p>Exploring new UX Patterns today!</p>
+          <p>John Johnson</p>
+          <p>Exploring new UX Patterns today!</p>
+          <!-- Posts will be rendered here -->
+        </div>
+      </div>
+    </main>
+    <aside>
+      <h3>Trending</h3>
+      <ul>
+        <li>#WebDev</li>
+        <li>#JavaScript</li>
+        <li>#UXDesign</li>
+      </ul>
+      <h3>Who to follow</h3>
+      <ul>
+        <li>Jane Doe</li>
+        <button class="followBtn">Follow</button>
+        <li>John Smith</li>
+        <button class="followBtn">Follow</button>
+        <li>Emily Davis</li>
+        <button class="followBtn">Follow</button>
+      </ul>
+    </aside>
   </body>
 </html>
