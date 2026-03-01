@@ -7,31 +7,50 @@
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
+    <link rel="stylesheet" href="assets/css/responsive.css" />
   </head>
   <body class="auth-page">
     <main class="auth-container">
-      <div class="auth-logo"></div>
+      <!-- Left – Logo -->
+      <div class="auth-left">
+        <svg class="logo-x" viewBox="0 0 24 24" aria-hidden="true">
+          <path
+            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
+          />
+        </svg>
+      </div>
 
-      <div class="auth-content">
-        <h1>Happening now</h1>
-        <h2>Join today.</h2>
+      <!-- Right – Form -->
+      <div class="auth-right">
+        <h1 class="auth-title">Happening now</h1>
+        <h2 class="auth-subtitle">Join today.</h2>
 
         <form id="loginForm" class="auth-form">
-          <input
-            type="text"
-            placeholder="Phone, email, or username"
-            class="input-field"
-            required
-          />
-          <input
-            type="password"
-            placeholder="Password"
-            class="input-field"
-            required
-          />
+          <div class="form-group">
+            <input
+              type="text"
+              id="loginEmail"
+              class="form-input"
+              placeholder=" "
+              required
+            />
+            <label for="loginEmail" class="form-label"
+              >Phone, email, or username</label
+            >
+          </div>
+          <div class="form-group">
+            <input
+              type="password"
+              id="loginPassword"
+              class="form-input"
+              placeholder=" "
+              required
+            />
+            <label for="loginPassword" class="form-label">Password</label>
+          </div>
 
-          <button type="submit" class="btn btn-white">Log in</button>
-          <button type="button" class="btn btn-outline">
+          <button type="submit" class="btn btn-white btn-full">Log in</button>
+          <button type="button" class="btn btn-outline btn-full">
             Forgot password?
           </button>
         </form>
