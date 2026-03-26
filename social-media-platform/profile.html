@@ -1,79 +1,385 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profile / X</title>
-    <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/layout.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-  </head>
-  <body>
-    <div class="app-shell">
- 
-      <header class="sidebar" id="appSidebar"></header>
- 
-      <main class="main-content">
-        <!-- Header -->
-        <div class="main-header">
-          <div class="header-row">
-            <a href="feed.html" class="back-btn">
-              <svg viewBox="0 0 24 24"><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"/></svg>
-            </a>
-            <div class="main-header-title">
-              <h2 id="headerName">Profile</h2>
-              <p id="headerPostCount"></p>
-            </div>
-          </div>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Profile / Pulse</title>
+<link rel="stylesheet" href="assets/css/base.css"/>
+<link rel="stylesheet" href="assets/css/layout.css"/>
+<link rel="stylesheet" href="assets/css/components.css"/>
+<link rel="stylesheet" href="assets/css/responsive.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <header class="sidebar" id="appSidebar"></header>
+  <main class="main-content">
+    <div class="main-header">
+      <div class="header-row">
+        <a href="feed.html" class="back-btn">
+          <svg viewBox="0 0 24 24"><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"/></svg>
+        </a>
+        <div class="main-header-title">
+          <h2 id="headerName">Profile</h2>
+          <p id="headerPostCount"></p>
         </div>
- 
-        <!-- Banner -->
-        <div class="profile-banner" style="background:linear-gradient(135deg,#1d4ed8,#1d9bf0,#06b6d4)"></div>
- 
-        <!-- Profile info — built by profile.js -->
-        <div class="profile-header" id="profileHeader"></div>
- 
-        <!-- Edit form (own profile) -->
-        <section id="editSection" style="display:none;padding:16px;border-bottom:1px solid var(--color-border)">
-          <h3 style="font-size:17px;font-weight:700;margin-bottom:16px">Edit profile</h3>
-          <form id="editForm" class="auth-form" novalidate style="gap:0">
-            <div class="form-group">
-              <input type="text" id="editName" class="form-input" placeholder=" " required/>
-              <label for="editName" class="form-label">Name</label>
-            </div>
-            <div class="form-group" style="margin-top:16px">
-              <textarea id="editBio" class="form-input" placeholder="Bio (optional)" rows="3"
-                style="resize:vertical;padding-top:26px;min-height:80px;"></textarea>
-            </div>
-            <div class="form-group" style="margin-top:16px">
-              <input type="password" id="editPassword" class="form-input" placeholder=" "/>
-              <label for="editPassword" class="form-label">New password (optional)</label>
-            </div>
-            <div style="display:flex;gap:8px;margin-top:16px;">
-              <button type="submit" class="btn btn-primary btn-sm">Save</button>
-              <button type="button" class="btn btn-outline btn-sm" id="cancelEditBtn">Cancel</button>
-            </div>
-          </form>
-        </section>
- 
-        <!-- Tabs -->
-        <div class="tab-bar">
-          <a href="#" class="tab-item active">Posts</a>
-          <a href="#" class="tab-item">Replies</a>
-          <a href="#" class="tab-item">Likes</a>
-        </div>
- 
-        <!-- Posts -->
-        <div id="profilePosts"></div>
-      </main>
- 
-      <aside class="right-sidebar" id="rightPanel"></aside>
- 
+      </div>
     </div>
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/storage.js"></script>
-    <script src="assets/js/ui.js"></script>
-    <script src="assets/js/profile.js"></script>
-  </body>
+    <div class="profile-banner"></div>
+    <div class="profile-header" id="profileHeader"></div>
+    <section id="editSection" style="display:none;padding:16px;border-bottom:1px solid var(--color-border);">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Edit profile</h3>
+      <form id="editForm" style="display:flex;flex-direction:column;gap:0;max-width:100%;" novalidate>
+        <div class="form-group"><input type="text" id="editName" class="form-input" placeholder=" " required/><label for="editName" class="form-label">Name</label></div>
+        <div class="form-group" style="margin-top:16px;"><textarea id="editBio" class="form-input" placeholder="Bio" rows="3" style="resize:vertical;padding-top:26px;min-height:80px;"></textarea></div>
+        <div class="form-group" style="margin-top:16px;"><input type="url" id="editPicUrl" class="form-input" placeholder=" "/><label for="editPicUrl" class="form-label">Profile picture URL</label></div>
+        <div class="form-group" style="margin-top:16px;"><input type="password" id="editPassword" class="form-input" placeholder=" "/><label for="editPassword" class="form-label">New password (optional)</label></div>
+        <div style="display:flex;gap:8px;margin-top:16px;">
+          <button type="submit" class="btn btn-primary btn-sm">Save</button>
+          <button type="button" class="btn btn-outline btn-sm" id="cancelEditBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+    <div class="tab-bar">
+      <a href="#" class="tab-item active">Pulses</a>
+      <a href="#" class="tab-item">Replies</a>
+    </div>
+    <div id="profilePosts"></div>
+    <div class="catchphrase-band">
+      <h3>Feel the Pulse &#9889;</h3>
+      <p>Share moments. Fade away. Or stay forever.</p>
+    </div>
+  </main>
+  <aside class="right-sidebar" id="rightPanel"></aside>
+</div>
+<script>
+// ================================================================
+// ALL LOGIC INLINE - same shared functions as feed.html
+// ================================================================
+var APP_USERS_KEY   = "smp_users";
+var APP_POSTS_KEY   = "smp_posts";
+var APP_SESSION_KEY = "smp_currentUser";
+var VIBES = ["🔥","💀","💯","👀","🫶"];
+
+function getUsers() { try{return JSON.parse(localStorage.getItem(APP_USERS_KEY))||[];}catch(e){return[];} }
+function getPosts() { try{return JSON.parse(localStorage.getItem(APP_POSTS_KEY))||[];}catch(e){return[];} }
+function saveUsers(a) { localStorage.setItem(APP_USERS_KEY,JSON.stringify(a)); }
+function savePosts(a) { localStorage.setItem(APP_POSTS_KEY,JSON.stringify(a)); }
+function getUserById(id) { return getUsers().find(function(u){return u.id===id;})||null; }
+function escapeHtml(s) { return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function formatTime(ts) {
+  var diff=Math.floor((Date.now()-ts)/1000);
+  if(diff<60) return diff+"s";
+  if(diff<3600) return Math.floor(diff/60)+"m";
+  if(diff<86400) return Math.floor(diff/3600)+"h";
+  return new Date(ts).toLocaleDateString("en-US",{month:"short",day:"numeric"});
+}
+function avatarGrad(id) {
+  var p=["linear-gradient(135deg,#8b5cf6,#6d28d9)","linear-gradient(135deg,#f43f5e,#e11d48)",
+    "linear-gradient(135deg,#10b981,#059669)","linear-gradient(135deg,#f59e0b,#d97706)",
+    "linear-gradient(135deg,#3b82f6,#2563eb)","linear-gradient(135deg,#ec4899,#db2777)"];
+  var h=0; for(var i=0;i<(id||"").length;i++) h=id.charCodeAt(i)+((h<<5)-h);
+  return p[Math.abs(h)%p.length];
+}
+function makeAv(user,sz) {
+  sz=sz||40;
+  var bg=avatarGrad(user.id);
+  var inner=(user.profilePic&&user.profilePic.length>3)
+    ? '<img src="'+user.profilePic+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" onerror="this.style.display=\'none\'">'
+    : '<span style="font-size:'+Math.round(sz*0.38)+'px;font-weight:800;color:#fff;">'+user.name[0].toUpperCase()+'</span>';
+  return '<div style="width:'+sz+'px;height:'+sz+'px;border-radius:50%;background:'+bg+';display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">'+inner+'</div>';
+}
+
+// ── Vibe bar ────────────────────────────────────────────────
+function vibeBar(post,me) {
+  var myV=(post.vibes||{})[me.id]||null;
+  var counts={};
+  VIBES.forEach(function(e){counts[e]=0;});
+  Object.values(post.vibes||{}).forEach(function(e){if(counts[e]!==undefined)counts[e]++;});
+  var total=Object.keys(post.vibes||{}).length;
+  var topE=null,topN=0;
+  VIBES.forEach(function(e){if(counts[e]>topN){topN=counts[e];topE=e;}});
+  var meId=me.id;
+  var pills=VIBES.map(function(e){
+    var n=counts[e]; var act=myV===e;
+    return '<button onclick="doVibe(\''+post.id+'\',\''+e+'\');event.stopPropagation()" style="background:'+(act?'rgba(139,92,246,0.2)':'transparent')+';border:1px solid '+(act?'#8b5cf6':'var(--color-border)')+';color:'+(act?'#8b5cf6':'var(--color-text-secondary)')+';border-radius:9999px;padding:3px 9px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:3px;">'+e+(n>0?'<span style="font-size:11px">'+n+'</span>':'')+'</button>';
+  }).join('');
+  return '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;">'+pills+(total>0?'<span style="font-size:11px;color:var(--color-text-secondary);margin-left:4px">'+total+' vibe'+(total!==1?'s':'')+(topE?' &middot; '+topE:'')+'</span>':'')+'</div>';
+}
+
+// ── Render a single post ────────────────────────────────────
+function renderPost(post,me) {
+  var author=getUserById(post.authorId); if(!author) return '';
+  var bg=avatarGrad(author.id);
+  var isOwn=post.authorId===me.id;
+  var expBadge=post.expiresAt?'<span style="font-size:11px;background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);border-radius:9999px;padding:1px 8px;margin-left:6px;">&#9203;</span>':'';
+  var delBtn=isOwn?'<button onclick="delPost(\''+post.id+'\');event.stopPropagation()" style="margin-left:auto;background:none;border:none;color:var(--color-text-secondary);cursor:pointer;font-size:14px;" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'var(--color-text-secondary)\'">&#10005;</button>':'';
+
+  var commentRows=(post.comments||[]).map(function(c){
+    var ca=getUserById(c.authorId); if(!ca) return '';
+    var cbg=avatarGrad(ca.id);
+    var cdel=c.authorId===me.id?'<button onclick="delComment(\''+post.id+'\',\''+c.id+'\');event.stopPropagation()" style="margin-left:auto;background:none;border:none;color:var(--color-text-secondary);cursor:pointer;font-size:12px;">&#10005;</button>':'';
+    return '<div id="cmt-'+c.id+'" style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--color-border);">'
+      +'<div style="width:28px;height:28px;border-radius:50%;background:'+cbg+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;">'+ca.name[0].toUpperCase()+'</div>'
+      +'<div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-weight:700;font-size:13px;">'+escapeHtml(ca.name)+'</span><span style="color:var(--color-text-secondary);font-size:12px;">'+formatTime(c.timestamp)+'</span>'+cdel+'</div>'
+      +'<div style="font-size:13px;margin-top:2px;">'+escapeHtml(c.text)+'</div></div></div>';
+  }).join('');
+
+  return '<article class="post-card" id="post-'+post.id+'" data-id="'+post.id+'" onclick="window.location.href=\'post.html?id='+post.id+'\'">'
+    +'<a href="profile.html?id='+author.id+'" onclick="event.stopPropagation()" style="text-decoration:none;">'+makeAv(author,40)+'</a>'
+    +'<div class="post-body">'
+    +'<div class="post-header">'
+    +'<a href="profile.html?id='+author.id+'" class="post-author" onclick="event.stopPropagation()">'+escapeHtml(author.name)+'</a>'
+    +'<span class="post-handle">@'+escapeHtml(author.username)+'</span>'
+    +'<span class="post-separator">&middot;</span>'
+    +'<span class="post-time">'+formatTime(post.timestamp)+'</span>'
+    +expBadge+delBtn+'</div>'
+    +'<div class="post-content">'+escapeHtml(post.content)+'</div>'
+    +'<div id="vb-'+post.id+'">'+vibeBar(post,me)+'</div>'
+    +'<div class="post-actions">'
+    +'<button class="post-action comment" onclick="toggleReply(\''+post.id+'\');event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"/></svg>'
+    +'<span id="rc-'+post.id+'">'+(post.comments||[]).length+'</span></button></div>'
+    +'<div id="ci-'+post.id+'" style="display:none;margin-top:8px;border-top:1px solid var(--color-border);padding-top:8px;">'
+    +'<div id="cl-'+post.id+'">'+commentRows+'</div>'
+    +'<div style="display:flex;gap:8px;margin-top:8px;" onclick="event.stopPropagation()">'
+    +'<input id="ri-'+post.id+'" type="text" placeholder="Reply..." maxlength="280" style="flex:1;background:var(--color-bg-surface);border:1px solid var(--color-border);border-radius:9999px;padding:8px 14px;color:var(--color-text-primary);font-size:13px;outline:none;font-family:inherit;" onfocus="this.style.borderColor=\'#8b5cf6\'" onblur="this.style.borderColor=\'var(--color-border)\'"/>'
+    +'<button onclick="submitReply(\''+post.id+'\',\''+me.id+'\');event.stopPropagation()" style="background:#8b5cf6;color:#fff;border:none;border-radius:9999px;padding:8px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;">Reply</button>'
+    +'</div></div></div></article>';
+}
+
+// ── Post actions ────────────────────────────────────────────
+function doVibe(postId,emoji) {
+  var meId=localStorage.getItem(APP_SESSION_KEY);
+  var posts=getPosts();
+  var p=posts.find(function(x){return x.id===postId;}); if(!p) return;
+  if(!p.vibes) p.vibes={};
+  if(p.vibes[meId]===emoji) delete p.vibes[meId]; else p.vibes[meId]=emoji;
+  savePosts(posts);
+  var me2=getUserById(meId);
+  var el=document.getElementById("vb-"+postId);
+  if(el&&me2) el.innerHTML=vibeBar(p,me2);
+}
+function toggleReply(id) {
+  var el=document.getElementById("ci-"+id);
+  if(el) el.style.display=el.style.display==="none"?"block":"none";
+}
+function submitReply(postId,meId) {
+  var inp=document.getElementById("ri-"+postId);
+  var txt=inp?inp.value.trim():""; if(!txt) return;
+  var posts=getPosts();
+  var p=posts.find(function(x){return x.id===postId;}); if(!p) return;
+  if(!p.comments) p.comments=[];
+  var c={id:"c_"+Date.now(),authorId:meId,text:txt,timestamp:Date.now()};
+  p.comments.push(c); savePosts(posts);
+  var cl=document.getElementById("cl-"+postId);
+  var me2=getUserById(meId);
+  if(cl&&me2){
+    var cbg=avatarGrad(me2.id);
+    cl.insertAdjacentHTML("beforeend",'<div id="cmt-'+c.id+'" style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--color-border);">'
+      +'<div style="width:28px;height:28px;border-radius:50%;background:'+cbg+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;">'+me2.name[0].toUpperCase()+'</div>'
+      +'<div style="flex:1;"><div style="font-weight:700;font-size:13px;">'+escapeHtml(me2.name)+'</div>'
+      +'<div style="font-size:13px;margin-top:2px;">'+escapeHtml(c.text)+'</div></div></div>');
+  }
+  var rc=document.getElementById("rc-"+postId); if(rc) rc.textContent=p.comments.length;
+  inp.value="";
+}
+function delComment(postId,cId) {
+  var meId=localStorage.getItem(APP_SESSION_KEY);
+  var posts=getPosts();
+  var p=posts.find(function(x){return x.id===postId;}); if(!p) return;
+  p.comments=p.comments.filter(function(c){return !(c.id===cId&&c.authorId===meId);});
+  savePosts(posts);
+  var el=document.getElementById("cmt-"+cId); if(el) el.remove();
+  var rc=document.getElementById("rc-"+postId); if(rc) rc.textContent=p.comments.length;
+}
+function delPost(postId) {
+  var meId=localStorage.getItem(APP_SESSION_KEY);
+  if(!confirm("Delete this pulse?")) return;
+  savePosts(getPosts().filter(function(p){return !(p.id===postId&&p.authorId===meId);}));
+  var el=document.getElementById("post-"+postId); if(el) el.remove();
+  renderProfile();
+}
+
+// ── Auth ────────────────────────────────────────────────────
+if(!localStorage.getItem(APP_SESSION_KEY)) { location.href="login.html"; }
+var SESSION_ID = localStorage.getItem(APP_SESSION_KEY);
+var ME = getUserById(SESSION_ID);
+if(!ME) { location.href="login.html"; }
+
+var params   = new URLSearchParams(window.location.search);
+var targetId = params.get("id") || ME.id;
+var isOwn    = targetId === ME.id;
+
+// ── Sidebar ────────────────────────────────────────────────
+function buildSidebar() {
+  var el=document.getElementById("appSidebar"); if(!el) return;
+  var pc=getPosts().filter(function(p){return p.authorId===ME.id;}).length;
+  var active = isOwn ? " active" : "";
+  el.innerHTML=
+    '<div class="sidebar-logo"><a href="feed.html"><svg viewBox="0 0 24 24" fill="#8b5cf6" style="width:28px;height:28px"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13Z"/></svg></a></div>'
+    +'<nav class="sidebar-nav">'
+    +'<a href="feed.html" class="nav-item"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913v-7.075h3.008v7.075c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.409-.758z"/></svg><span>Home</span></a>'
+    +'<a href="profile.html?id='+ME.id+'" class="nav-item'+active+'"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M5.651 19h12.698c-.337-1.8-1.023-3.21-1.945-4.19C15.318 13.65 13.838 13 12 13s-3.317.65-4.404 1.81c-.922.98-1.608 2.39-1.945 4.19zm.486-5.56C7.627 11.85 9.648 11 12 11s4.373.85 5.863 2.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H3.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46zM12 4c-1.105 0-2 .9-2 2s.895 2 2 2 2-.9 2-2-.895-2-2-2zM8 6c0-2.21 1.791-4 4-4s4 1.79 4 4-1.791 4-4 4-4-1.79-4-4z"/></svg><span>Profile</span></a>'
+    +'</nav>'
+    +'<a href="feed.html" class="nav-post-btn"><span>Pulse it</span></a>'
+    +'<a href="profile.html?id='+ME.id+'" class="sidebar-profile">'+makeAv(ME,40)
+    +'<div class="sidebar-profile-info"><div class="sidebar-profile-name">'+escapeHtml(ME.name)+'</div>'
+    +'<div class="sidebar-profile-handle">@'+escapeHtml(ME.username)+' &middot; '+pc+' pulses</div></div></a>'
+    +'<button id="logoutBtn" style="margin:8px;width:calc(100% - 16px);background:transparent;border:1px solid var(--color-border);color:var(--color-text-secondary);border-radius:9999px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Log out</button>';
+  document.getElementById("logoutBtn").addEventListener("click",function(){
+    localStorage.removeItem(APP_SESSION_KEY); location.href="login.html";
+  });
+}
+buildSidebar();
+
+// ── Render profile ──────────────────────────────────────────
+function renderProfile() {
+  var users    = getUsers();
+  var user     = users.find(function(u){return u.id===targetId;});
+  if(!user) { document.getElementById("profileHeader").innerHTML='<p style="padding:20px">User not found.</p>'; return; }
+
+  // Get posts for this user
+  var posts = getPosts().filter(function(p){return p.authorId===targetId;}).sort(function(a,b){return b.timestamp-a.timestamp;});
+
+  var followers    = users.filter(function(u){return (u.following||[]).indexOf(targetId)!==-1;});
+  var meUser       = users.find(function(u){return u.id===ME.id;})||ME;
+  var following    = (meUser.following||[]).indexOf(targetId)!==-1;
+  var followingList= (user.following||[]).map(function(id){return users.find(function(u){return u.id===id;});}).filter(Boolean);
+
+  document.title = user.name+" / Pulse";
+  var hn=document.getElementById("headerName"); if(hn) hn.textContent=user.name;
+  var hc=document.getElementById("headerPostCount"); if(hc) hc.textContent=posts.length+" pulses";
+
+  var bg=avatarGrad(user.id);
+  var avInner=(user.profilePic&&user.profilePic.length>3)
+    ? '<img src="'+user.profilePic+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" onerror="this.style.display=\'none\'">'
+    : '<span style="font-size:36px;font-weight:800;color:#fff;">'+user.name[0].toUpperCase()+'</span>';
+
+  var actionBtn=isOwn
+    ? '<button class="btn btn-outline btn-sm" id="editBtn">Edit profile</button>'
+    : '<button class="btn '+(following?"btn-outline":"btn-primary")+' btn-sm" id="followBtn">'+(following?"Following":"Follow")+'</button>';
+
+  var ph=document.getElementById("profileHeader");
+  ph.innerHTML=
+    '<div class="profile-avatar-wrapper">'
+    +'<div class="profile-avatar" style="background:'+bg+';display:flex;align-items:center;justify-content:center;overflow:hidden;">'+avInner+'</div>'
+    +'<div class="profile-actions">'+actionBtn+'</div>'
+    +'</div>'
+    +'<h1 class="profile-name">'+escapeHtml(user.name)+'</h1>'
+    +'<div class="profile-handle">@'+escapeHtml(user.username)+'</div>'
+    +(user.bio?'<p class="profile-bio">'+escapeHtml(user.bio)+'</p>':'')
+    +'<div class="profile-meta"><span class="profile-meta-item">Joined '+new Date(user.timestamp).toLocaleDateString("en-US",{month:"long",year:"numeric"})+'</span></div>'
+    +'<div class="profile-stats">'
+    +'<a href="#" id="openFollowing"><span class="profile-stat-count">'+followingList.length+'</span> Following</a>'
+    +'<a href="#" id="openFollowers"><span class="profile-stat-count">'+followers.length+'</span> Followers</a>'
+    +'</div>';
+
+  if(isOwn) {
+    document.getElementById("editBtn").addEventListener("click",function(){
+      var u=getUserById(ME.id);
+      document.getElementById("editName").value   = u.name;
+      document.getElementById("editBio").value    = u.bio||"";
+      document.getElementById("editPicUrl").value = u.profilePic||"";
+      document.getElementById("editSection").style.display="block";
+    });
+  } else {
+    document.getElementById("followBtn").addEventListener("click",function(){
+      var us=getUsers();
+      var mu=us.find(function(u){return u.id===ME.id;});
+      if(mu){ var idx=(mu.following||[]).indexOf(targetId); if(idx===-1)mu.following.push(targetId);else mu.following.splice(idx,1); saveUsers(us); }
+      renderProfile();
+    });
+  }
+
+  document.getElementById("openFollowing").addEventListener("click",function(e){e.preventDefault();showModal("Following",followingList);});
+  document.getElementById("openFollowers").addEventListener("click",function(e){e.preventDefault();showModal("Followers",followers);});
+
+  // ── Render posts ──────────────────────────────────────────
+  var pp=document.getElementById("profilePosts");
+  if(posts.length===0) {
+    pp.innerHTML='<div class="empty-state"><h3>No pulses yet</h3><p>Nothing posted yet.</p></div>';
+  } else {
+    pp.innerHTML=posts.map(function(p){return renderPost(p,ME);}).join("");
+  }
+
+  // right panel
+  renderRight();
+}
+
+// ── Modal ───────────────────────────────────────────────────
+function showModal(title,users) {
+  var old=document.getElementById("uModal"); if(old) old.remove();
+  var rows=users.map(function(u){
+    var bg=avatarGrad(u.id);
+    return '<a href="profile.html?id='+u.id+'" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--color-border);text-decoration:none;" onmouseover="this.style.background=\'var(--color-bg-hover)\'" onmouseout="this.style.background=\'transparent\'">'
+      +'<div style="width:40px;height:40px;border-radius:50%;background:'+bg+';display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px;">'+u.name[0].toUpperCase()+'</div>'
+      +'<div><div style="font-weight:700;font-size:14px;color:var(--color-text-primary);">'+escapeHtml(u.name)+'</div>'
+      +'<div style="font-size:12px;color:var(--color-text-secondary);">@'+escapeHtml(u.username)+'</div></div></a>';
+  }).join("");
+  var m=document.createElement("div");
+  m.id="uModal";
+  m.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;";
+  m.innerHTML='<div style="background:var(--color-bg-base);border:1px solid var(--color-border);border-radius:16px;width:100%;max-width:420px;max-height:70vh;overflow-y:auto;">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--color-border);position:sticky;top:0;background:var(--color-bg-base);">'
+    +'<h2 style="font-size:18px;font-weight:700;">'+title+'</h2>'
+    +'<button onclick="document.getElementById(\'uModal\').remove()" style="background:none;border:none;cursor:pointer;color:var(--color-text-secondary);font-size:20px;">&#10005;</button>'
+    +'</div>'+(rows||'<p style="padding:20px;color:var(--color-text-secondary);text-align:center;">Nobody here yet.</p>')+'</div>';
+  m.addEventListener("click",function(e){if(e.target===m)m.remove();});
+  document.body.appendChild(m);
+}
+
+// ── Edit form ───────────────────────────────────────────────
+document.getElementById("editForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var users=getUsers();
+  var u=users.find(function(x){return x.id===ME.id;});
+  var name=document.getElementById("editName").value.trim();
+  var bio=document.getElementById("editBio").value.trim();
+  var pw=document.getElementById("editPassword").value;
+  var pic=document.getElementById("editPicUrl").value.trim();
+  if(!name) return;
+  u.name=name; u.bio=bio; u.profilePic=pic;
+  if(pw&&pw.length>=6) u.password=pw;
+  saveUsers(users);
+  ME=getUserById(ME.id); // refresh ME
+  document.getElementById("editSection").style.display="none";
+  buildSidebar();
+  renderProfile();
+});
+document.getElementById("cancelEditBtn").addEventListener("click",function(){
+  document.getElementById("editSection").style.display="none";
+});
+
+// ── Right panel ─────────────────────────────────────────────
+function renderRight() {
+  var rp=document.getElementById("rightPanel"); if(!rp) return;
+  var allU=getUsers();
+  var meU=allU.find(function(u){return u.id===ME.id;})||ME;
+  var sugg=allU.filter(function(u){return u.id!==ME.id&&(meU.following||[]).indexOf(u.id)===-1;}).slice(0,4);
+  var sr=sugg.map(function(u){
+    var bg=avatarGrad(u.id);
+    return '<div class="follow-item"><div class="follow-avatar" style="background:'+bg+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;border-radius:50%;">'+u.name[0].toUpperCase()+'</div>'
+      +'<div class="follow-info"><a href="profile.html?id='+u.id+'" class="follow-name">'+escapeHtml(u.name)+'</a>'
+      +'<div class="follow-handle">@'+escapeHtml(u.username)+'</div></div>'
+      +'<button class="btn-follow" data-uid="'+u.id+'">Follow</button></div>';
+  }).join("");
+  rp.innerHTML='<div class="search-box"><div class="search-input-wrapper">'
+    +'<svg viewBox="0 0 24 24" style="position:absolute;left:16px;width:16px;height:16px;fill:var(--color-text-secondary);pointer-events:none"><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"/></svg>'
+    +'<input class="search-input" placeholder="Search Pulse"/></div></div>'
+    +(sr?'<div class="sidebar-box"><div class="sidebar-box-header">You might like</div>'+sr+'</div>':'')
+    +'<div class="right-footer"><div class="right-footer-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">&#169; 2026 Pulse</a></div></div>';
+
+  rp.querySelectorAll(".btn-follow[data-uid]").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var users=getUsers();
+      var mu=users.find(function(u){return u.id===ME.id;});
+      if(mu&&mu.following.indexOf(btn.dataset.uid)===-1){mu.following.push(btn.dataset.uid);saveUsers(users);}
+      renderProfile();
+    });
+  });
+}
+
+// ── Init ─────────────────────────────────────────────────────
+renderProfile();
+</script>
+</body>
 </html>

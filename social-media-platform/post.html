@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Post / X</title>
+    <title>Post / Pulse</title>
     <link rel="stylesheet" href="assets/css/base.css" />
     <link rel="stylesheet" href="assets/css/layout.css" />
     <link rel="stylesheet" href="assets/css/components.css" />
@@ -11,9 +11,9 @@
   </head>
   <body>
     <div class="app-shell">
- 
+
       <header class="sidebar" id="appSidebar"></header>
- 
+
       <main class="main-content">
         <div class="main-header">
           <div class="header-row">
@@ -23,17 +23,17 @@
             <div class="main-header-title"><h2>Post</h2></div>
           </div>
         </div>
- 
+
         <!-- Post detail — built by postview.js -->
         <div id="postDetailArea"></div>
- 
+
         <!-- Reply composer -->
         <div class="composer" id="replyComposerWrap" style="display:none"></div>
- 
+
         <!-- Replies -->
         <div id="repliesContainer"></div>
       </main>
- 
+
       <aside class="right-sidebar">
         <div class="sidebar-box" style="margin-top:12px">
           <div class="sidebar-box-header">Trends for you</div>
@@ -43,12 +43,13 @@
           <div class="sidebar-box-footer"><a href="#">Show more</a></div>
         </div>
       </aside>
- 
+
     </div>
-    <script src="assets/js/config.js"></script>
-    <script src="assets/js/storage.js"></script>
-    <script src="assets/js/ui.js"></script>
-    <script src="assets/js/postview.js"></script>
+    <script src="assets/js/config.js?v=9"></script>
+    <script src="assets/js/storage.js?v=9"></script>
+    <script src="assets/js/seed.js?v=9"></script>
+    <script src="assets/js/ui.js?v=9"></script>
+    <script src="assets/js/postview.js?v=9"></script>
     <script>
       // Build reply composer once postview.js has loaded
       const me2 = getCurrentUser();

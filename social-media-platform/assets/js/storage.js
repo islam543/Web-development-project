@@ -22,12 +22,38 @@ function getFeedPosts(currentUserId) {
   return getPosts().filter(p => visible.includes(p.authorId)).sort((a,b) => b.timestamp - a.timestamp);
 }
  
-function createPost(authorId, content) {
+// expiresIn: null=forever, or ms (3600000=1h, 86400000=24h, 604800000=7d)
+function createPost(authorId, content, expiresIn) {
   const posts = getPosts();
-  const post  = { id:"p_"+Date.now(), authorId, content, timestamp:Date.now(), likes:[], comments:[] };
+  const now   = Date.now();
+  const post  = {
+    id:"p_"+now, authorId, content, timestamp:now,
+    expiresAt: expiresIn ? now + expiresIn : null,
+    vibes:{}, comments:[],
+  };
   posts.unshift(post);
   savePosts(posts);
   return post;
+}
+ 
+function purgeExpiredPosts() {
+  const posts = getPosts();
+  const now   = Date.now();
+  const alive = posts.filter(p => !p.expiresAt || p.expiresAt > now);
+  if (alive.length !== posts.length) savePosts(alive);
+  return alive;
+}
+ 
+function isExpired(post) { return post.expiresAt && Date.now() > post.expiresAt; }
+ 
+function expiryLabel(post) {
+  if (!post.expiresAt) return "♾ Forever";
+  const left = post.expiresAt - Date.now();
+  if (left <= 0)           return "Expired";
+  if (left < 60000)        return "< 1m left";
+  if (left < 3600000)      return Math.ceil(left/60000)  + "m left";
+  if (left < 86400000)     return Math.ceil(left/3600000)+ "h left";
+  return Math.ceil(left/86400000) + "d left";
 }
  
 function removePost(postId, userId) {
@@ -38,15 +64,33 @@ function removePost(postId, userId) {
   return true;
 }
  
-// ── Likes ──────────────────────────────────────────────────────
-function toggleLike(postId, userId) {
+// ── Vibes ──────────────────────────────────────────────────────
+function setVibe(postId, userId, emoji) {
   const posts = getPosts();
   const post  = posts.find(p => p.id === postId);
   if (!post) return null;
-  const idx = post.likes.indexOf(userId);
-  if (idx === -1) post.likes.push(userId); else post.likes.splice(idx, 1);
+  if (!post.vibes) post.vibes = {};
+  if (post.vibes[userId] === emoji) delete post.vibes[userId];
+  else post.vibes[userId] = emoji;
   savePosts(posts);
-  return post.likes;
+  return post.vibes;
+}
+ 
+function getUserVibe(post, userId)  { return (post.vibes || {})[userId] || null; }
+function getTotalVibes(post)        { return Object.keys(post.vibes || {}).length; }
+ 
+function getVibeCounts(post) {
+  const c = {};
+  SMP.vibes.forEach(e => c[e] = 0);
+  Object.values(post.vibes || {}).forEach(e => { if (c[e] !== undefined) c[e]++; });
+  return c;
+}
+ 
+function getTopVibe(post) {
+  const c = getVibeCounts(post);
+  let top = null, max = 0;
+  for (const [e, n] of Object.entries(c)) { if (n > max) { max = n; top = e; } }
+  return max > 0 ? { emoji: top, count: max } : null;
 }
  
 // ── Comments ───────────────────────────────────────────────────
@@ -54,6 +98,7 @@ function addComment(postId, authorId, text) {
   const posts = getPosts();
   const post  = posts.find(p => p.id === postId);
   if (!post) return null;
+  if (!post.comments) post.comments = [];
   const c = { id:"c_"+Date.now(), authorId, text, timestamp:Date.now() };
   post.comments.push(c);
   savePosts(posts);
@@ -133,4 +178,9 @@ function showFormError(form, msg) {
   el.textContent   = msg;
   el.style.display = "block";
   setTimeout(() => { if (el) el.style.display = "none"; }, 4000);
+}
+ 
+// ── Get ALL posts (for discovery feed) ────────────────────────
+function getAllPosts() {
+  return getPosts().sort((a,b) => b.timestamp - a.timestamp);
 }
