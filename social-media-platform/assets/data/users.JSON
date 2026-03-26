@@ -1,0 +1,37 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "username": "Alex Johnson",
+      "email": "alex@example.com",
+      "password": "password123",
+      "bio": "Full-stack developer & UX enthusiast. Building cool things on the web. Open source contributor. Coffee addict ☕",
+      "profilePic": null,
+      "followers": ["2", "3"],
+      "following": ["2", "3"],
+      "createdAt": "2026-03-20T10:00:00.000Z"
+    },
+    {
+      "id": "2",
+      "username": "Sarah Chen",
+      "email": "sarah@example.com",
+      "password": "password123",
+      "bio": "Design Systems Engineer. Previously @Startup. Figma enthusiast. Building accessible web experiences.",
+      "profilePic": null,
+      "followers": ["1"],
+      "following": ["1"],
+      "createdAt": "2026-03-21T10:00:00.000Z"
+    },
+    {
+      "id": "3",
+      "username": "John Smith",
+      "email": "john@example.com",
+      "password": "password123",
+      "bio": "Software engineer passionate about open source, React, and TypeScript. 🚀",
+      "profilePic": null,
+      "followers": ["1"],
+      "following": ["1"],
+      "createdAt": "2026-03-22T10:00:00.000Z"
+    }
+  ]
+}
