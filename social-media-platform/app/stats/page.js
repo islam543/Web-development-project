@@ -1,6 +1,7 @@
 import { redirect } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import UserSearchPanel from "@/components/UserSearchPanel";
+import { Card, CardBody, CardHeader } from "@heroui/react";
 import { getCurrentUser } from "@/lib/session";
 import {
   getPlatformStats,
@@ -46,21 +47,28 @@ export default async function StatsPage({ searchParams }) {
         <UserSearchPanel query={query} users={users} redirectTo="/stats" />
       }
     >
-      <section className="card">
-        <h2 className="section-title">Platform statistics</h2>
-      </section>
+      <Card shadow="sm">
+        <CardHeader>
+          <h2 className="text-xl font-semibold">Platform statistics</h2>
+        </CardHeader>
+      </Card>
 
-      <section className="stats-grid">
+      <section className="grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-3">
         {statCards.map((item) => (
-          <article className="card stat-card" key={item.label}>
-            <p className="muted tiny">{item.label}</p>
-            <p className="stat-value">{item.value}</p>
-          </article>
+          <Card shadow="sm" key={item.label}>
+            <CardBody>
+              <p className="text-xs text-default-500">{item.label}</p>
+              <p className="text-3xl font-semibold">{item.value}</p>
+            </CardBody>
+          </Card>
         ))}
       </section>
 
-      <section className="card">
-        <h3 className="section-title">Most active user in last 90 days</h3>
+      <Card shadow="sm">
+        <CardHeader>
+          <h3 className="text-lg font-semibold">Most active user in last 90 days</h3>
+        </CardHeader>
+        <CardBody>
         {stats.mostActiveUserLast90Days ? (
           <p>
             {stats.mostActiveUserLast90Days.name} (@
@@ -68,21 +76,26 @@ export default async function StatsPage({ searchParams }) {
             {stats.mostActiveUserLast90Days.activity} combined posts and replies.
           </p>
         ) : (
-          <p className="muted">No activity data available.</p>
+          <p className="text-default-500">No activity data available.</p>
         )}
-      </section>
+        </CardBody>
+      </Card>
 
-      <section className="card">
-        <h3 className="section-title">Most followed user</h3>
+      <Card shadow="sm">
+        <CardHeader>
+          <h3 className="text-lg font-semibold">Most followed user</h3>
+        </CardHeader>
+        <CardBody>
         {stats.mostFollowedUser ? (
           <p>
             {stats.mostFollowedUser.name} (@{stats.mostFollowedUser.username}) has{" "}
             {stats.mostFollowedUser.followers} followers.
           </p>
         ) : (
-          <p className="muted">No follow data available.</p>
+          <p className="text-default-500">No follow data available.</p>
         )}
-      </section>
+        </CardBody>
+      </Card>
     </AppShell>
   );
 }

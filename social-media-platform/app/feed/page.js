@@ -3,6 +3,7 @@ import AppShell from "@/components/AppShell";
 import PostComposer from "@/components/PostComposer";
 import PostCard from "@/components/PostCard";
 import UserSearchPanel from "@/components/UserSearchPanel";
+import { Card, CardBody, CardHeader } from "@heroui/react";
 import { getCurrentUser } from "@/lib/session";
 import {
   getFeedPosts,
@@ -26,18 +27,24 @@ export default async function FeedPage({ searchParams }) {
       user={currentUser}
       rightPanel={<UserSearchPanel query={query} users={users} redirectTo="/feed" />}
     >
-      <section className="card">
-        <h2 className="section-title">Your Feed</h2>
-        <p className="muted">Latest notes from across Asteria.</p>
-      </section>
+      <Card shadow="sm">
+        <CardHeader className="flex-col items-start gap-1">
+          <h2 className="text-xl font-semibold">Your Feed</h2>
+          <p className="text-sm text-default-500">
+            Latest notes from across Asteria.
+          </p>
+        </CardHeader>
+      </Card>
 
       <PostComposer redirectTo="/feed" />
 
-      <section className="stack-list">
+      <section className="flex flex-col gap-4">
         {posts.length === 0 ? (
-          <section className="card">
-            <p className="muted">No posts yet. Share the first note.</p>
-          </section>
+          <Card shadow="sm">
+            <CardBody>
+              <p className="text-default-500">No posts yet. Share the first note.</p>
+            </CardBody>
+          </Card>
         ) : (
           posts.map((post) => (
             <PostCard key={post.id} post={post} redirectTo="/feed" />

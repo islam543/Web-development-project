@@ -199,6 +199,11 @@ export async function toggleFollowByUsername({ viewerId, username }) {
   if (!target) return { status: "not_found" };
   if (target.id === viewerId) return { status: "self" };
 
+  const getFollowersCount = () =>
+    prisma.follow.count({
+      where: { followeeId: target.id },
+    });
+
   const existing = await prisma.follow.findUnique({
     where: {
       followerId_followeeId: {
@@ -217,7 +222,11 @@ export async function toggleFollowByUsername({ viewerId, username }) {
         },
       },
     });
-    return { status: "ok", following: false };
+    return {
+      status: "ok",
+      following: false,
+      followersCount: await getFollowersCount(),
+    };
   }
 
   await prisma.follow.create({
@@ -227,7 +236,11 @@ export async function toggleFollowByUsername({ viewerId, username }) {
     },
   });
 
-  return { status: "ok", following: true };
+  return {
+    status: "ok",
+    following: true,
+    followersCount: await getFollowersCount(),
+  };
 }
 
 export async function getPlatformStats() {
