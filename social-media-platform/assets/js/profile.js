@@ -62,8 +62,8 @@ function renderProfile() {
       + 'Joined ' + new Date(user.timestamp).toLocaleDateString("en-US", {month:"long", year:"numeric"})
       + '</span></div>'
       + '<div class="profile-stats">'
-      + '<a href="#" id="openFollowing"><span class="profile-stat-count">' + followingList.length + '</span> Following</a>'
-      + '<a href="#" id="openFollowers"><span class="profile-stat-count">' + followers.length + '</span> Followers</a>'
+      + '<button type="button" class="profile-stat-link" id="openFollowing"><span class="profile-stat-count">' + followingList.length + '</span> Following</button>'
+      + '<button type="button" class="profile-stat-link" id="openFollowers"><span class="profile-stat-count">' + followers.length + '</span> Followers</button>'
       + '</div>';
  
     if (isOwn) {
@@ -197,7 +197,7 @@ if (rightPanel) {
     + (suggestions.length
       ? '<div class="sidebar-box"><div class="sidebar-box-header">You might like</div>' + sugRows + '</div>'
       : '')
-    + '<div class="right-footer"><div class="right-footer-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">&#169; 2026 Pulse</a></div></div>';
+    + '<div class="right-footer"><div class="right-footer-links"><span>Terms</span><span>Privacy</span><span>&#169; 2026 Asteria</span></div></div>';
 }
  
 renderProfile();

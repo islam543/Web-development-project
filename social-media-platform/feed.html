@@ -15,8 +15,8 @@
   <main class="main-content">
     <div class="main-header">
       <div class="tab-bar">
-        <a href="#" class="tab-item active" id="tabA">Following</a>
-        <a href="#" class="tab-item" id="tabB">Discover</a>
+        <button type="button" class="tab-item active" id="tabA">Following</button>
+        <button type="button" class="tab-item" id="tabB">Discover</button>
       </div>
     </div>
     <div class="composer" id="composerWrap"></div>
@@ -357,7 +357,7 @@ function renderRight() {
     +'<div class="sidebar-box" id="wb"><div class="sidebar-box-header">Who to follow</div>'
     +(rows||'<p style="padding:12px 16px;font-size:13px;color:var(--color-text-secondary);">Following everyone!</p>')
     +'</div>'
-    +'<div class="right-footer"><div class="right-footer-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">&#169; 2026 Pulse</a></div></div>';
+    +'<div class="right-footer"><div class="right-footer-links"><span>Terms</span><span>Privacy</span><span>&#169; 2026 Asteria</span></div></div>';
 
   el.querySelectorAll(".btn-follow[data-uid]").forEach(function(btn){
     btn.addEventListener("click",function(){

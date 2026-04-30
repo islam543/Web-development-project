@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/requestAuth";
+import { getSafeRedirectPath } from "@/lib/redirects";
 import { addReply } from "@/lib/repositories/socialRepository";
 
 export async function POST(request, { params }) {
@@ -10,8 +11,9 @@ export async function POST(request, { params }) {
 
   const formData = await request.formData();
   const content = String(formData.get("content") || "").trim();
-  const redirectTo = String(
-    formData.get("redirectTo") || `/post/${params.postId}`,
+  const redirectTo = getSafeRedirectPath(
+    formData.get("redirectTo"),
+    `/post/${params.postId}`,
   );
 
   if (!content) {

@@ -1,5 +1,6 @@
 import { NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/requestAuth";
+import { getSafeRedirectPath } from "@/lib/redirects";
 import { toggleLike } from "@/lib/repositories/socialRepository";
 
 export async function POST(request, { params }) {
@@ -9,7 +10,7 @@ export async function POST(request, { params }) {
   }
 
   const formData = await request.formData();
-  const redirectTo = String(formData.get("redirectTo") || "/feed");
+  const redirectTo = getSafeRedirectPath(formData.get("redirectTo"));
 
   await toggleLike({
     postId: params.postId,

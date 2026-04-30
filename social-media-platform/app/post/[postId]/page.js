@@ -45,9 +45,6 @@ export default async function PostDetailPage({ params, searchParams }) {
     >
       <section className="card">
         <h2 className="section-title">Post details</h2>
-        <p className="muted">
-          Reply and engagement actions are fully functional in this view.
-        </p>
       </section>
 
       <PostCard post={post} redirectTo={`/post/${params.postId}`} showDetailLink={false} />

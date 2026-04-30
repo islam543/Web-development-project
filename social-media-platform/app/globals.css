@@ -1,15 +1,17 @@
 :root {
-  --bg: #f7f3ee;
-  --surface: #fffdf9;
-  --surface-strong: #f2e9dd;
-  --ink: #2f251c;
-  --ink-muted: #7a6d62;
-  --accent: #7f5539;
-  --accent-strong: #5c3b25;
-  --border: #e6d8c7;
-  --danger: #b23a48;
-  --radius: 14px;
-  --shadow: 0 8px 24px rgba(44, 28, 16, 0.08);
+  --bg: #f4f7f2;
+  --surface: #ffffff;
+  --surface-strong: #edf4ee;
+  --surface-tint: #f8faf7;
+  --ink: #16231f;
+  --ink-muted: #62716c;
+  --accent: #10584e;
+  --accent-strong: #0b3e38;
+  --highlight: #b0843a;
+  --danger: #a33b4a;
+  --border: #d9e3dc;
+  --radius: 8px;
+  --shadow: 0 10px 26px rgba(18, 38, 30, 0.08);
 }
 
 *,
@@ -27,7 +29,8 @@ body {
     -apple-system,
     sans-serif;
   color: var(--ink);
-  background: linear-gradient(120deg, #f9f5ef, #f2ebe2);
+  background: linear-gradient(135deg, #f6f8f3 0%, #eef5ef 58%, #f7f5f8 100%);
+  min-height: 100vh;
 }
 
 a {
@@ -57,9 +60,9 @@ a:hover {
 
 .brand-kicker {
   margin: 0;
-  color: var(--accent);
+  color: var(--highlight);
   text-transform: uppercase;
-  letter-spacing: 0.12em;
+  letter-spacing: 0;
   font-size: 0.75rem;
   font-weight: 700;
 }
@@ -67,7 +70,7 @@ a:hover {
 .brand-title,
 .auth-title {
   margin: 0.4rem 0 0.9rem;
-  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-size: 2rem;
   font-family: "Georgia", "Times New Roman", serif;
 }
 
@@ -76,7 +79,7 @@ a:hover {
   color: #7f1020;
   padding: 0.7rem 0.8rem;
   border: 1px solid #f5bac1;
-  border-radius: 10px;
+  border-radius: var(--radius);
 }
 
 .app-shell {
@@ -109,6 +112,10 @@ a:hover {
   padding: 1rem;
 }
 
+.brand-block {
+  border-top: 4px solid var(--accent);
+}
+
 .main-nav {
   display: flex;
   flex-direction: column;
@@ -121,7 +128,7 @@ a:hover {
 
 .main-nav a {
   padding: 0.6rem 0.7rem;
-  border-radius: 10px;
+  border-radius: var(--radius);
   font-weight: 600;
 }
 
@@ -164,10 +171,18 @@ label > span {
 .file-label input[type="file"] {
   width: 100%;
   border: 1px solid var(--border);
-  background: #fff;
-  border-radius: 10px;
+  background: var(--surface);
+  border-radius: var(--radius);
   padding: 0.7rem 0.75rem;
   font: inherit;
+}
+
+.input:focus,
+.textarea:focus,
+.file-label input[type="file"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(16, 88, 78, 0.12);
+  outline: none;
 }
 
 .textarea {
@@ -187,7 +202,7 @@ label > span {
   border: 1px solid var(--accent);
   background: var(--accent);
   color: #fff;
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: 0.55rem 0.8rem;
   font: inherit;
   font-weight: 600;
@@ -202,7 +217,7 @@ label > span {
 
 .icon-btn {
   border-color: var(--border);
-  background: #fff;
+  background: var(--surface);
   color: var(--ink);
 }
 
@@ -215,6 +230,14 @@ label > span {
 .secondary-btn:hover,
 .icon-btn:hover {
   filter: brightness(0.96);
+}
+
+.primary-btn:focus-visible,
+.secondary-btn:focus-visible,
+.icon-btn:focus-visible,
+a:focus-visible {
+  outline: 3px solid rgba(176, 132, 58, 0.35);
+  outline-offset: 2px;
 }
 
 .post-card,
@@ -244,7 +267,7 @@ label > span {
 
 .post-image {
   width: 100%;
-  border-radius: 12px;
+  border-radius: var(--radius);
   margin: 0.7rem 0;
   border: 1px solid var(--border);
 }
@@ -279,8 +302,9 @@ label > span {
   justify-content: space-between;
   gap: 0.7rem;
   border: 1px solid var(--border);
-  border-radius: 10px;
+  border-radius: var(--radius);
   padding: 0.7rem;
+  background: var(--surface-tint);
 }
 
 .stats-grid {

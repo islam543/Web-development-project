@@ -28,18 +28,21 @@ export default async function FeedPage({ searchParams }) {
     >
       <section className="card">
         <h2 className="section-title">Your Feed</h2>
-        <p className="muted">
-          All accounts are discoverable and profile pages are accessible to every
-          authenticated user.
-        </p>
+        <p className="muted">Latest notes from across Asteria.</p>
       </section>
 
       <PostComposer redirectTo="/feed" />
 
       <section className="stack-list">
-        {posts.map((post) => (
-          <PostCard key={post.id} post={post} redirectTo="/feed" />
-        ))}
+        {posts.length === 0 ? (
+          <section className="card">
+            <p className="muted">No posts yet. Share the first note.</p>
+          </section>
+        ) : (
+          posts.map((post) => (
+            <PostCard key={post.id} post={post} redirectTo="/feed" />
+          ))
+        )}
       </section>
     </AppShell>
   );

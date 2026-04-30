@@ -3,6 +3,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { NextResponse } from "next/server";
 import { getUserFromRequest } from "@/lib/requestAuth";
+import { getSafeRedirectPath } from "@/lib/redirects";
 import { createPost, getFeedPosts } from "@/lib/repositories/socialRepository";
 
 export const runtime = "nodejs";
@@ -43,7 +44,7 @@ export async function POST(request) {
 
   const formData = await request.formData();
   const content = String(formData.get("content") || "").trim();
-  const redirectTo = String(formData.get("redirectTo") || "/feed");
+  const redirectTo = getSafeRedirectPath(formData.get("redirectTo"));
   const image = formData.get("image");
 
   if (!content && (!image || image.size === 0)) {

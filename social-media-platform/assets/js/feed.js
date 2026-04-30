@@ -159,10 +159,10 @@ function renderRightSidebar() {
     + '<div class="sidebar-box" id="suggestBox">'
     + '<div class="sidebar-box-header">Who to follow</div>'
     + (followRows.length ? followRows : noSuggestions)
-    + '<div class="sidebar-box-footer"><a href="#">Show more</a></div>'
+    + '<div class="sidebar-box-footer"><span>Use search to discover more</span></div>'
     + '</div>'
     + '<div class="right-footer"><div class="right-footer-links">'
-    + '<a href="#">Terms</a><a href="#">Privacy</a><a href="#">&#169; 2026 Pulse</a>'
+    + '<span>Terms</span><span>Privacy</span><span>&#169; 2026 Asteria</span>'
     + '</div></div>';
  
   el.querySelectorAll(".btn-follow[data-uid]").forEach(function(btn) {

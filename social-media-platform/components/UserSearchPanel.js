@@ -1,11 +1,13 @@
 import Link from "next/link";
 
 export default function UserSearchPanel({ query, users, redirectTo }) {
+  const searchAction = redirectTo || "/feed";
+
   return (
     <section className="card">
       <h2 className="section-title">Discover people</h2>
 
-      <form action="/feed" method="get" className="search-form">
+      <form action={searchAction} method="get" className="search-form">
         <input
           className="input"
           type="search"

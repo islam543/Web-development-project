@@ -114,8 +114,9 @@
 .profile-meta-item { display:flex;align-items:center;gap:var(--space-xs); }
 .profile-meta-item svg { width:16px;height:16px;fill:var(--color-text-secondary); }
 .profile-stats { display:flex;gap:var(--space-xl);margin-bottom:var(--space-lg);font-size:var(--font-sm);color:var(--color-text-secondary); }
-.profile-stats a { color:var(--color-text-secondary); }
-.profile-stats a:hover { text-decoration:underline; }
+.profile-stats a,.profile-stat-link { color:var(--color-text-secondary); }
+.profile-stat-link { border:0;background:transparent;padding:0;font:inherit;cursor:pointer; }
+.profile-stats a:hover,.profile-stat-link:hover { text-decoration:underline; }
 .profile-stat-count { font-weight:700;color:var(--color-text-primary); }
  
 /* ===== Back Button ===== */

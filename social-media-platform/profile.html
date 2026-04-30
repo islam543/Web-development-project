@@ -40,8 +40,7 @@
       </form>
     </section>
     <div class="tab-bar">
-      <a href="#" class="tab-item active">Pulses</a>
-      <a href="#" class="tab-item">Replies</a>
+      <span class="tab-item active">Pulses</span>
     </div>
     <div id="profilePosts"></div>
     <div class="catchphrase-band">
@@ -269,8 +268,8 @@ function renderProfile() {
     +(user.bio?'<p class="profile-bio">'+escapeHtml(user.bio)+'</p>':'')
     +'<div class="profile-meta"><span class="profile-meta-item">Joined '+new Date(user.timestamp).toLocaleDateString("en-US",{month:"long",year:"numeric"})+'</span></div>'
     +'<div class="profile-stats">'
-    +'<a href="#" id="openFollowing"><span class="profile-stat-count">'+followingList.length+'</span> Following</a>'
-    +'<a href="#" id="openFollowers"><span class="profile-stat-count">'+followers.length+'</span> Followers</a>'
+    +'<button type="button" class="profile-stat-link" id="openFollowing"><span class="profile-stat-count">'+followingList.length+'</span> Following</button>'
+    +'<button type="button" class="profile-stat-link" id="openFollowers"><span class="profile-stat-count">'+followers.length+'</span> Followers</button>'
     +'</div>';
 
   if(isOwn) {
@@ -366,7 +365,7 @@ function renderRight() {
     +'<svg viewBox="0 0 24 24" style="position:absolute;left:16px;width:16px;height:16px;fill:var(--color-text-secondary);pointer-events:none"><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"/></svg>'
     +'<input class="search-input" placeholder="Search Pulse"/></div></div>'
     +(sr?'<div class="sidebar-box"><div class="sidebar-box-header">You might like</div>'+sr+'</div>':'')
-    +'<div class="right-footer"><div class="right-footer-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">&#169; 2026 Pulse</a></div></div>';
+    +'<div class="right-footer"><div class="right-footer-links"><span>Terms</span><span>Privacy</span><span>&#169; 2026 Asteria</span></div></div>';
 
   rp.querySelectorAll(".btn-follow[data-uid]").forEach(function(btn){
     btn.addEventListener("click",function(){

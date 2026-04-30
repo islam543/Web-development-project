@@ -1,15 +1,23 @@
 import { redirect } from "next/navigation";
 import AppShell from "@/components/AppShell";
+import UserSearchPanel from "@/components/UserSearchPanel";
 import { getCurrentUser } from "@/lib/session";
-import { getPlatformStats } from "@/lib/repositories/socialRepository";
+import {
+  getPlatformStats,
+  searchUsers,
+} from "@/lib/repositories/socialRepository";
 
 export const dynamic = "force-dynamic";
 
-export default async function StatsPage() {
+export default async function StatsPage({ searchParams }) {
   const currentUser = await getCurrentUser();
   if (!currentUser) redirect("/login");
 
-  const stats = await getPlatformStats();
+  const query = searchParams?.q?.trim() ?? "";
+  const [stats, users] = await Promise.all([
+    getPlatformStats(),
+    searchUsers({ query, viewerId: currentUser.id }),
+  ]);
 
   const statCards = [
     { label: "Total users", value: stats.totalUsers },
@@ -35,18 +43,11 @@ export default async function StatsPage() {
     <AppShell
       user={currentUser}
       rightPanel={
-        <section className="card">
-          <h2 className="section-title">Query-backed metrics</h2>
-          <p className="muted">
-            These values are generated from repository queries and database
-            aggregation.
-          </p>
-        </section>
+        <UserSearchPanel query={query} users={users} redirectTo="/stats" />
       }
     >
       <section className="card">
         <h2 className="section-title">Platform statistics</h2>
-        <p className="muted">At least six metrics are shown below for Phase 2.</p>
       </section>
 
       <section className="stats-grid">

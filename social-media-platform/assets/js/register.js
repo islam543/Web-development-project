@@ -48,8 +48,8 @@ function renderProfile() {
         </span>
       </div>
       <div class="profile-stats">
-        <a href="#"><span class="profile-stat-count">${(user.following||[]).length}</span> Following</a>
-        <a href="#"><span class="profile-stat-count">${followers}</span> Followers</a>
+        <span><span class="profile-stat-count">${(user.following||[]).length}</span> Following</span>
+        <span><span class="profile-stat-count">${followers}</span> Followers</span>
       </div>`;
  
     if (isOwn) {
@@ -133,11 +133,11 @@ if (rightPanel) {
           </div>
           <button class="btn-follow" onclick="toggleFollow('${me.id}','${u.id}');location.reload()">Follow</button>
         </div>`).join("")}
-      <div class="sidebar-box-footer"><a href="#">Show more</a></div>
+      <div class="sidebar-box-footer"><span>Use search to discover more</span></div>
     </div>` : ""}
     <div class="right-footer"><div class="right-footer-links">
-      <a href="#">Terms of Service</a><a href="#">Privacy Policy</a>
-      <a href="#">© 2026 X Corp.</a>
+      <span>Terms of Service</span><span>Privacy Policy</span>
+      <span>© 2026 Asteria</span>
     </div></div>`;
 }
  
