@@ -1,423 +1,385 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Alex Johnson (@alexjohnson) / X</title>
-    <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/layout.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
-  </head>
-  <body>
-    <div class="app-shell">
-      <!-- ===== Left Sidebar ===== -->
-      <header class="sidebar">
-        <div class="sidebar-logo">
-          <a href="feed.html">
-            <svg class="logo-x-sm" viewBox="0 0 24 24">
-              <path
-                d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-              />
-            </svg>
-          </a>
-        </div>
-
-        <nav class="sidebar-nav">
-          <a href="feed.html" class="nav-item">
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913v-7.075h3.008v7.075c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.409-.758z"
-              />
-            </svg>
-            <span>Home</span>
-          </a>
-          <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"
-              />
-            </svg>
-            <span>Explore</span>
-          </a>
-          <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M19.993 9.042C19.48 5.017 16.054 2 11.996 2s-7.49 3.021-7.999 7.051L2.866 18H7.1c.463 2.282 2.481 4 4.9 4s4.437-1.718 4.9-4h4.236l-1.143-8.958zM12 20c-1.306 0-2.417-.835-2.829-2h5.658c-.412 1.165-1.523 2-2.829 2zm-6.866-4l.847-6.698C6.364 6.272 8.941 4 11.996 4s5.627 2.268 6.013 5.295L18.858 16H5.134z"
-              />
-            </svg>
-            <span>Notifications</span>
-          </a>
-          <a href="#" class="nav-item">
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M1.998 5.5c0-1.381 1.119-2.5 2.5-2.5h15c1.381 0 2.5 1.119 2.5 2.5v13c0 1.381-1.119 2.5-2.5 2.5h-15c-1.381 0-2.5-1.119-2.5-2.5v-13zm2.5-.5c-.276 0-.5.224-.5.5v2.764l8 3.638 8-3.636V5.5c0-.276-.224-.5-.5-.5h-15zm15.5 5.463l-8 3.636-8-3.638V18.5c0 .276.224.5.5.5h15c.276 0 .5-.224.5-.5v-8.037z"
-              />
-            </svg>
-            <span>Messages</span>
-          </a>
-          <a href="profile.html" class="nav-item active">
-            <svg viewBox="0 0 24 24">
-              <path
-                fill="currentColor"
-                d="M5.651 19h12.698c-.337-1.8-1.023-3.21-1.945-4.19C15.318 13.65 13.838 13 12 13s-3.317.65-4.404 1.81c-.922.98-1.608 2.39-1.945 4.19zm.486-5.56C7.627 11.85 9.648 11 12 11s4.373.85 5.863 2.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H3.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46zM12 4c-1.105 0-2 .9-2 2s.895 2 2 2 2-.9 2-2-.895-2-2-2zM8 6c0-2.21 1.791-4 4-4s4 1.79 4 4-1.791 4-4 4-4-1.79-4-4z"
-              />
-            </svg>
-            <span>Profile</span>
-          </a>
-        </nav>
-
-        <a href="#" class="nav-post-btn">
-          <span>Post</span>
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Profile / Pulse</title>
+<link rel="stylesheet" href="assets/css/base.css"/>
+<link rel="stylesheet" href="assets/css/layout.css"/>
+<link rel="stylesheet" href="assets/css/components.css"/>
+<link rel="stylesheet" href="assets/css/responsive.css"/>
+</head>
+<body>
+<div class="app-shell">
+  <header class="sidebar" id="appSidebar"></header>
+  <main class="main-content">
+    <div class="main-header">
+      <div class="header-row">
+        <a href="feed.html" class="back-btn">
+          <svg viewBox="0 0 24 24"><path d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"/></svg>
         </a>
-
-        <a href="profile.html" class="sidebar-profile">
-          <div
-            class="sidebar-profile-avatar"
-            style="background: linear-gradient(135deg, #1d9bf0, #1a8cd8)"
-          ></div>
-          <div class="sidebar-profile-info">
-            <div class="sidebar-profile-name">Alex Johnson</div>
-            <div class="sidebar-profile-handle">@alexjohnson</div>
-          </div>
-          <span class="sidebar-profile-more">···</span>
-        </a>
-      </header>
-
-      <!-- ===== Main Content ===== -->
-      <main class="main-content" id="profile">
-        <!-- Header with back button -->
-        <div class="main-header">
-          <div class="header-row">
-            <a href="feed.html" class="back-btn">
-              <svg viewBox="0 0 24 24">
-                <path
-                  d="M7.414 13l5.043 5.04-1.414 1.42L3.586 12l7.457-7.46 1.414 1.42L7.414 11H21v2H7.414z"
-                />
-              </svg>
-            </a>
-            <div class="main-header-title">
-              <h2>Alex Johnson</h2>
-              <p>248 posts</p>
-            </div>
-          </div>
+        <div class="main-header-title">
+          <h2 id="headerName">Profile</h2>
+          <p id="headerPostCount"></p>
         </div>
-
-        <!-- Profile Banner -->
-        <div
-          class="profile-banner"
-          style="background: linear-gradient(135deg, #1d4ed8, #1d9bf0, #06b6d4)"
-        ></div>
-
-        <!-- Profile Header -->
-        <div class="profile-header">
-          <div class="profile-avatar-wrapper">
-            <div
-              class="profile-avatar"
-              style="background: linear-gradient(135deg, #1d9bf0, #1a8cd8)"
-            ></div>
-            <div class="profile-actions">
-              <button class="btn btn-outline btn-sm">Edit profile</button>
-            </div>
-          </div>
-
-          <h1 class="profile-name">Alex Johnson</h1>
-          <div class="profile-handle">@alexjohnson</div>
-
-          <p class="profile-bio">
-            Full-stack developer & UX enthusiast. Building cool things on the
-            web. Open source contributor. Coffee addict ☕
-          </p>
-
-          <div class="profile-meta">
-            <span class="profile-meta-item">
-              <svg viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M12 7c-1.93 0-3.5 1.57-3.5 3.5S10.07 14 12 14s3.5-1.57 3.5-3.5S13.93 7 12 7zm0 5c-.827 0-1.5-.673-1.5-1.5S11.173 9 12 9s1.5.673 1.5 1.5S12.827 12 12 12zm0-10c-4.687 0-8.5 3.813-8.5 8.5 0 5.967 7.621 11.116 7.945 11.332l.555.37.555-.37c.324-.216 7.945-5.365 7.945-11.332C20.5 5.813 16.687 2 12 2zm0 17.77c-1.665-1.241-6.5-5.196-6.5-9.27C5.5 6.916 8.416 4 12 4s6.5 2.916 6.5 6.5c0 4.073-4.835 8.028-6.5 9.27z"
-                />
-              </svg>
-              San Francisco, CA
-            </span>
-            <span class="profile-meta-item">
-              <svg viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M18.36 5.64c-1.95-1.96-5.11-1.96-7.07 0L9.88 7.05 8.46 5.64l1.42-1.42c2.73-2.73 7.16-2.73 9.9 0 2.73 2.74 2.73 7.17 0 9.9l-1.42 1.42-1.41-1.42 1.41-1.41c1.96-1.96 1.96-5.12 0-7.07zm-2.12 3.53l-7.07 7.07-1.41-1.41 7.07-7.07 1.41 1.41zm-12.02 .71l1.42-1.42 1.41 1.42-1.41 1.41c-1.96 1.96-1.96 5.12 0 7.07 1.95 1.96 5.11 1.96 7.07 0l1.41-1.41 1.42 1.41-1.42 1.42c-2.73 2.73-7.16 2.73-9.9 0-2.73-2.74-2.73-7.17 0-9.9z"
-                />
-              </svg>
-              <a href="#">alexjohnson.dev</a>
-            </span>
-            <span class="profile-meta-item">
-              <svg viewBox="0 0 24 24">
-                <path
-                  fill="currentColor"
-                  d="M7 4V3h2v1h6V3h2v1h1.5C19.89 4 21 5.12 21 6.5v12c0 1.38-1.11 2.5-2.5 2.5h-13C4.12 21 3 19.88 3 18.5v-12C3 5.12 4.12 4 5.5 4H7zm0 2H5.5c-.27 0-.5.22-.5.5V7h14v-.5c0-.28-.22-.5-.5-.5H17v1h-2V6H9v1H7V6zM5 9v9.5c0 .28.22.5.5.5h13c.28 0 .5-.22.5-.5V9H5z"
-                />
-              </svg>
-              Joined March 2020
-            </span>
-          </div>
-
-          <div class="profile-stats">
-            <a href="#">
-              <span class="profile-stat-count">892</span> Following
-            </a>
-            <a href="#">
-              <span class="profile-stat-count">2,341</span> Followers
-            </a>
-          </div>
-        </div>
-
-        <!-- Profile Tabs -->
-        <div class="tab-bar">
-          <a href="#" class="tab-item active">Posts</a>
-          <a href="#" class="tab-item">Replies</a>
-          <a href="#" class="tab-item">Media</a>
-          <a href="#" class="tab-item">Likes</a>
-        </div>
-
-        <!-- Profile Posts -->
-        <div id="profilePosts">
-          <article class="post-card">
-            <div
-              class="post-avatar"
-              style="background: linear-gradient(135deg, #1d9bf0, #1a8cd8)"
-            ></div>
-            <div class="post-body">
-              <div class="post-header">
-                <span class="post-author">Alex Johnson</span>
-                <span class="post-handle">@alexjohnson</span>
-                <span class="post-separator">·</span>
-                <span class="post-time">2h</span>
-              </div>
-              <div class="post-content">
-                Exploring new UX patterns today! The intersection of design
-                systems and accessibility is where the real magic happens. What
-                tools are you all using? 🎨
-              </div>
-              <div class="post-actions">
-                <button class="post-action comment">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"
-                    />
-                  </svg>
-                  <span>12</span>
-                </button>
-                <button class="post-action repost">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"
-                    />
-                  </svg>
-                  <span>4</span>
-                </button>
-                <button class="post-action like">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
-                    />
-                  </svg>
-                  <span>48</span>
-                </button>
-                <button class="post-action share">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.12 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div
-              class="post-avatar"
-              style="background: linear-gradient(135deg, #1d9bf0, #1a8cd8)"
-            ></div>
-            <div class="post-body">
-              <div class="post-header">
-                <span class="post-author">Alex Johnson</span>
-                <span class="post-handle">@alexjohnson</span>
-                <span class="post-separator">·</span>
-                <span class="post-time">1d</span>
-              </div>
-              <div class="post-content">
-                Just published my new article on building responsive layouts
-                with CSS Grid. Check it out! 📝 The key insight: stop thinking
-                in pixels, start thinking in content.
-              </div>
-              <div class="post-actions">
-                <button class="post-action comment">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"
-                    />
-                  </svg>
-                  <span>34</span>
-                </button>
-                <button class="post-action repost">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"
-                    />
-                  </svg>
-                  <span>67</span>
-                </button>
-                <button class="post-action like">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
-                    />
-                  </svg>
-                  <span>312</span>
-                </button>
-                <button class="post-action share">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.12 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </article>
-
-          <article class="post-card">
-            <div
-              class="post-avatar"
-              style="background: linear-gradient(135deg, #1d9bf0, #1a8cd8)"
-            ></div>
-            <div class="post-body">
-              <div class="post-header">
-                <span class="post-author">Alex Johnson</span>
-                <span class="post-handle">@alexjohnson</span>
-                <span class="post-separator">·</span>
-                <span class="post-time">3d</span>
-              </div>
-              <div class="post-content">
-                Coffee, code, repeat. That's the life. ☕💻 Working on something
-                exciting — can't share details yet but stay tuned!
-              </div>
-              <div class="post-actions">
-                <button class="post-action comment">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"
-                    />
-                  </svg>
-                  <span>8</span>
-                </button>
-                <button class="post-action repost">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M4.5 3.88l4.432 4.14-1.364 1.46L5.5 7.55V16c0 1.1.896 2 2 2H13v2H7.5c-2.209 0-4-1.79-4-4V7.55L1.432 9.48.068 8.02 4.5 3.88zM16.5 6H11V4h5.5c2.209 0 4 1.79 4 4v8.45l2.068-1.93 1.364 1.46-4.432 4.14-4.432-4.14 1.364-1.46 2.068 1.93V8c0-1.1-.896-2-2-2z"
-                    />
-                  </svg>
-                  <span>12</span>
-                </button>
-                <button class="post-action like">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M16.697 5.5c-1.222-.06-2.679.51-3.89 2.16l-.805 1.09-.806-1.09C9.984 6.01 8.526 5.44 7.304 5.5c-1.243.07-2.349.78-2.91 1.91-.552 1.12-.633 2.78.479 4.82 1.074 1.97 3.257 4.27 7.129 6.61 3.87-2.34 6.052-4.64 7.126-6.61 1.111-2.04 1.03-3.7.477-4.82-.561-1.13-1.666-1.84-2.908-1.91zm4.187 7.69c-1.351 2.48-4.001 5.12-8.379 7.67l-.503.3-.504-.3c-4.379-2.55-7.029-5.19-8.382-7.67-1.36-2.5-1.41-4.86-.514-6.67.887-1.79 2.647-2.91 4.601-3.01 1.651-.09 3.368.56 4.798 2.01 1.429-1.45 3.146-2.1 4.796-2.01 1.954.1 3.714 1.22 4.601 3.01.896 1.81.846 4.17-.514 6.67z"
-                    />
-                  </svg>
-                  <span>95</span>
-                </button>
-                <button class="post-action share">
-                  <svg viewBox="0 0 24 24">
-                    <path
-                      fill="currentColor"
-                      d="M12 2.59l5.7 5.7-1.41 1.42L13 6.41V16h-2V6.41l-3.3 3.3-1.41-1.42L12 2.59zM21 15l-.02 3.51c0 1.38-1.12 2.49-2.5 2.49H5.5C4.12 21 3 19.88 3 18.5V15h2v3.5c0 .28.22.5.5.5h12.98c.28 0 .5-.22.5-.5L19 15h2z"
-                    />
-                  </svg>
-                </button>
-              </div>
-            </div>
-          </article>
-        </div>
-      </main>
-
-      <!-- ===== Right Sidebar ===== -->
-      <aside class="right-sidebar">
-        <div class="search-box">
-          <div class="search-input-wrapper">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"
-              />
-            </svg>
-            <input type="text" class="search-input" placeholder="Search" />
-          </div>
-        </div>
-
-        <!-- Who to follow -->
-        <div class="sidebar-box">
-          <div class="sidebar-box-header">You might like</div>
-          <div class="follow-item">
-            <div
-              class="follow-avatar"
-              style="background: linear-gradient(135deg, #f91880, #e01670)"
-            ></div>
-            <div class="follow-info">
-              <div class="follow-name">Jane Doe</div>
-              <div class="follow-handle">@janedoe</div>
-            </div>
-            <button class="btn-follow">Follow</button>
-          </div>
-          <div class="follow-item">
-            <div
-              class="follow-avatar"
-              style="background: linear-gradient(135deg, #00ba7c, #00a170)"
-            ></div>
-            <div class="follow-info">
-              <div class="follow-name">Sarah Chen</div>
-              <div class="follow-handle">@sarahchen</div>
-            </div>
-            <button class="btn-follow">Follow</button>
-          </div>
-          <div class="follow-item">
-            <div
-              class="follow-avatar"
-              style="background: linear-gradient(135deg, #7856ff, #6844e0)"
-            ></div>
-            <div class="follow-info">
-              <div class="follow-name">Mike Rivera</div>
-              <div class="follow-handle">@mikerivera</div>
-            </div>
-            <button class="btn-follow">Follow</button>
-          </div>
-          <div class="sidebar-box-footer">
-            <a href="#">Show more</a>
-          </div>
-        </div>
-
-        <div class="right-footer">
-          <div class="right-footer-links">
-            <a href="#">Terms of Service</a>
-            <a href="#">Privacy Policy</a>
-            <a href="#">Cookie Policy</a>
-            <a href="#">© 2026 X Corp.</a>
-          </div>
-        </div>
-      </aside>
+      </div>
     </div>
-  </body>
+    <div class="profile-banner"></div>
+    <div class="profile-header" id="profileHeader"></div>
+    <section id="editSection" style="display:none;padding:16px;border-bottom:1px solid var(--color-border);">
+      <h3 style="font-size:16px;font-weight:700;margin-bottom:16px;">Edit profile</h3>
+      <form id="editForm" style="display:flex;flex-direction:column;gap:0;max-width:100%;" novalidate>
+        <div class="form-group"><input type="text" id="editName" class="form-input" placeholder=" " required/><label for="editName" class="form-label">Name</label></div>
+        <div class="form-group" style="margin-top:16px;"><textarea id="editBio" class="form-input" placeholder="Bio" rows="3" style="resize:vertical;padding-top:26px;min-height:80px;"></textarea></div>
+        <div class="form-group" style="margin-top:16px;"><input type="url" id="editPicUrl" class="form-input" placeholder=" "/><label for="editPicUrl" class="form-label">Profile picture URL</label></div>
+        <div class="form-group" style="margin-top:16px;"><input type="password" id="editPassword" class="form-input" placeholder=" "/><label for="editPassword" class="form-label">New password (optional)</label></div>
+        <div style="display:flex;gap:8px;margin-top:16px;">
+          <button type="submit" class="btn btn-primary btn-sm">Save</button>
+          <button type="button" class="btn btn-outline btn-sm" id="cancelEditBtn">Cancel</button>
+        </div>
+      </form>
+    </section>
+    <div class="tab-bar">
+      <a href="#" class="tab-item active">Pulses</a>
+      <a href="#" class="tab-item">Replies</a>
+    </div>
+    <div id="profilePosts"></div>
+    <div class="catchphrase-band">
+      <h3>Feel the Pulse &#9889;</h3>
+      <p>Share moments. Fade away. Or stay forever.</p>
+    </div>
+  </main>
+  <aside class="right-sidebar" id="rightPanel"></aside>
+</div>
+<script>
+// ================================================================
+// ALL LOGIC INLINE - same shared functions as feed.html
+// ================================================================
+var APP_USERS_KEY   = "smp_users";
+var APP_POSTS_KEY   = "smp_posts";
+var APP_SESSION_KEY = "smp_currentUser";
+var VIBES = ["🔥","💀","💯","👀","🫶"];
+
+function getUsers() { try{return JSON.parse(localStorage.getItem(APP_USERS_KEY))||[];}catch(e){return[];} }
+function getPosts() { try{return JSON.parse(localStorage.getItem(APP_POSTS_KEY))||[];}catch(e){return[];} }
+function saveUsers(a) { localStorage.setItem(APP_USERS_KEY,JSON.stringify(a)); }
+function savePosts(a) { localStorage.setItem(APP_POSTS_KEY,JSON.stringify(a)); }
+function getUserById(id) { return getUsers().find(function(u){return u.id===id;})||null; }
+function escapeHtml(s) { return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function formatTime(ts) {
+  var diff=Math.floor((Date.now()-ts)/1000);
+  if(diff<60) return diff+"s";
+  if(diff<3600) return Math.floor(diff/60)+"m";
+  if(diff<86400) return Math.floor(diff/3600)+"h";
+  return new Date(ts).toLocaleDateString("en-US",{month:"short",day:"numeric"});
+}
+function avatarGrad(id) {
+  var p=["linear-gradient(135deg,#8b5cf6,#6d28d9)","linear-gradient(135deg,#f43f5e,#e11d48)",
+    "linear-gradient(135deg,#10b981,#059669)","linear-gradient(135deg,#f59e0b,#d97706)",
+    "linear-gradient(135deg,#3b82f6,#2563eb)","linear-gradient(135deg,#ec4899,#db2777)"];
+  var h=0; for(var i=0;i<(id||"").length;i++) h=id.charCodeAt(i)+((h<<5)-h);
+  return p[Math.abs(h)%p.length];
+}
+function makeAv(user,sz) {
+  sz=sz||40;
+  var bg=avatarGrad(user.id);
+  var inner=(user.profilePic&&user.profilePic.length>3)
+    ? '<img src="'+user.profilePic+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" onerror="this.style.display=\'none\'">'
+    : '<span style="font-size:'+Math.round(sz*0.38)+'px;font-weight:800;color:#fff;">'+user.name[0].toUpperCase()+'</span>';
+  return '<div style="width:'+sz+'px;height:'+sz+'px;border-radius:50%;background:'+bg+';display:flex;align-items:center;justify-content:center;flex-shrink:0;overflow:hidden;">'+inner+'</div>';
+}
+
+// ── Vibe bar ────────────────────────────────────────────────
+function vibeBar(post,me) {
+  var myV=(post.vibes||{})[me.id]||null;
+  var counts={};
+  VIBES.forEach(function(e){counts[e]=0;});
+  Object.values(post.vibes||{}).forEach(function(e){if(counts[e]!==undefined)counts[e]++;});
+  var total=Object.keys(post.vibes||{}).length;
+  var topE=null,topN=0;
+  VIBES.forEach(function(e){if(counts[e]>topN){topN=counts[e];topE=e;}});
+  var meId=me.id;
+  var pills=VIBES.map(function(e){
+    var n=counts[e]; var act=myV===e;
+    return '<button onclick="doVibe(\''+post.id+'\',\''+e+'\');event.stopPropagation()" style="background:'+(act?'rgba(139,92,246,0.2)':'transparent')+';border:1px solid '+(act?'#8b5cf6':'var(--color-border)')+';color:'+(act?'#8b5cf6':'var(--color-text-secondary)')+';border-radius:9999px;padding:3px 9px;font-size:13px;cursor:pointer;display:inline-flex;align-items:center;gap:3px;">'+e+(n>0?'<span style="font-size:11px">'+n+'</span>':'')+'</button>';
+  }).join('');
+  return '<div style="margin-top:8px;display:flex;flex-wrap:wrap;gap:4px;align-items:center;">'+pills+(total>0?'<span style="font-size:11px;color:var(--color-text-secondary);margin-left:4px">'+total+' vibe'+(total!==1?'s':'')+(topE?' &middot; '+topE:'')+'</span>':'')+'</div>';
+}
+
+// ── Render a single post ────────────────────────────────────
+function renderPost(post,me) {
+  var author=getUserById(post.authorId); if(!author) return '';
+  var bg=avatarGrad(author.id);
+  var isOwn=post.authorId===me.id;
+  var expBadge=post.expiresAt?'<span style="font-size:11px;background:rgba(245,158,11,0.15);color:#f59e0b;border:1px solid rgba(245,158,11,0.3);border-radius:9999px;padding:1px 8px;margin-left:6px;">&#9203;</span>':'';
+  var delBtn=isOwn?'<button onclick="delPost(\''+post.id+'\');event.stopPropagation()" style="margin-left:auto;background:none;border:none;color:var(--color-text-secondary);cursor:pointer;font-size:14px;" onmouseover="this.style.color=\'#ef4444\'" onmouseout="this.style.color=\'var(--color-text-secondary)\'">&#10005;</button>':'';
+
+  var commentRows=(post.comments||[]).map(function(c){
+    var ca=getUserById(c.authorId); if(!ca) return '';
+    var cbg=avatarGrad(ca.id);
+    var cdel=c.authorId===me.id?'<button onclick="delComment(\''+post.id+'\',\''+c.id+'\');event.stopPropagation()" style="margin-left:auto;background:none;border:none;color:var(--color-text-secondary);cursor:pointer;font-size:12px;">&#10005;</button>':'';
+    return '<div id="cmt-'+c.id+'" style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--color-border);">'
+      +'<div style="width:28px;height:28px;border-radius:50%;background:'+cbg+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;">'+ca.name[0].toUpperCase()+'</div>'
+      +'<div style="flex:1;min-width:0;"><div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;"><span style="font-weight:700;font-size:13px;">'+escapeHtml(ca.name)+'</span><span style="color:var(--color-text-secondary);font-size:12px;">'+formatTime(c.timestamp)+'</span>'+cdel+'</div>'
+      +'<div style="font-size:13px;margin-top:2px;">'+escapeHtml(c.text)+'</div></div></div>';
+  }).join('');
+
+  return '<article class="post-card" id="post-'+post.id+'" data-id="'+post.id+'" onclick="window.location.href=\'post.html?id='+post.id+'\'">'
+    +'<a href="profile.html?id='+author.id+'" onclick="event.stopPropagation()" style="text-decoration:none;">'+makeAv(author,40)+'</a>'
+    +'<div class="post-body">'
+    +'<div class="post-header">'
+    +'<a href="profile.html?id='+author.id+'" class="post-author" onclick="event.stopPropagation()">'+escapeHtml(author.name)+'</a>'
+    +'<span class="post-handle">@'+escapeHtml(author.username)+'</span>'
+    +'<span class="post-separator">&middot;</span>'
+    +'<span class="post-time">'+formatTime(post.timestamp)+'</span>'
+    +expBadge+delBtn+'</div>'
+    +'<div class="post-content">'+escapeHtml(post.content)+'</div>'
+    +'<div id="vb-'+post.id+'">'+vibeBar(post,me)+'</div>'
+    +'<div class="post-actions">'
+    +'<button class="post-action comment" onclick="toggleReply(\''+post.id+'\');event.stopPropagation()"><svg viewBox="0 0 24 24" fill="currentColor" style="width:18px;height:18px"><path d="M1.751 10c0-4.42 3.584-8 8.005-8h4.366c4.49 0 8.129 3.64 8.129 8.13 0 2.96-1.607 5.68-4.196 7.11l-8.054 4.46v-3.69h-.067c-4.49.1-8.183-3.51-8.183-8.01zm8.005-6c-3.317 0-6.005 2.69-6.005 6 0 3.37 2.77 6.08 6.138 6.01l.351-.01h1.761v2.3l5.087-2.81c1.951-1.08 3.163-3.13 3.163-5.36 0-3.39-2.744-6.13-6.129-6.13H9.756z"/></svg>'
+    +'<span id="rc-'+post.id+'">'+(post.comments||[]).length+'</span></button></div>'
+    +'<div id="ci-'+post.id+'" style="display:none;margin-top:8px;border-top:1px solid var(--color-border);padding-top:8px;">'
+    +'<div id="cl-'+post.id+'">'+commentRows+'</div>'
+    +'<div style="display:flex;gap:8px;margin-top:8px;" onclick="event.stopPropagation()">'
+    +'<input id="ri-'+post.id+'" type="text" placeholder="Reply..." maxlength="280" style="flex:1;background:var(--color-bg-surface);border:1px solid var(--color-border);border-radius:9999px;padding:8px 14px;color:var(--color-text-primary);font-size:13px;outline:none;font-family:inherit;" onfocus="this.style.borderColor=\'#8b5cf6\'" onblur="this.style.borderColor=\'var(--color-border)\'"/>'
+    +'<button onclick="submitReply(\''+post.id+'\',\''+me.id+'\');event.stopPropagation()" style="background:#8b5cf6;color:#fff;border:none;border-radius:9999px;padding:8px 16px;font-weight:700;font-size:13px;cursor:pointer;font-family:inherit;">Reply</button>'
+    +'</div></div></div></article>';
+}
+
+// ── Post actions ────────────────────────────────────────────
+function doVibe(postId,emoji) {
+  var meId=localStorage.getItem(APP_SESSION_KEY);
+  var posts=getPosts();
+  var p=posts.find(function(x){return x.id===postId;}); if(!p) return;
+  if(!p.vibes) p.vibes={};
+  if(p.vibes[meId]===emoji) delete p.vibes[meId]; else p.vibes[meId]=emoji;
+  savePosts(posts);
+  var me2=getUserById(meId);
+  var el=document.getElementById("vb-"+postId);
+  if(el&&me2) el.innerHTML=vibeBar(p,me2);
+}
+function toggleReply(id) {
+  var el=document.getElementById("ci-"+id);
+  if(el) el.style.display=el.style.display==="none"?"block":"none";
+}
+function submitReply(postId,meId) {
+  var inp=document.getElementById("ri-"+postId);
+  var txt=inp?inp.value.trim():""; if(!txt) return;
+  var posts=getPosts();
+  var p=posts.find(function(x){return x.id===postId;}); if(!p) return;
+  if(!p.comments) p.comments=[];
+  var c={id:"c_"+Date.now(),authorId:meId,text:txt,timestamp:Date.now()};
+  p.comments.push(c); savePosts(posts);
+  var cl=document.getElementById("cl-"+postId);
+  var me2=getUserById(meId);
+  if(cl&&me2){
+    var cbg=avatarGrad(me2.id);
+    cl.insertAdjacentHTML("beforeend",'<div id="cmt-'+c.id+'" style="display:flex;gap:8px;padding:8px 0;border-bottom:1px solid var(--color-border);">'
+      +'<div style="width:28px;height:28px;border-radius:50%;background:'+cbg+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:12px;color:#fff;flex-shrink:0;">'+me2.name[0].toUpperCase()+'</div>'
+      +'<div style="flex:1;"><div style="font-weight:700;font-size:13px;">'+escapeHtml(me2.name)+'</div>'
+      +'<div style="font-size:13px;margin-top:2px;">'+escapeHtml(c.text)+'</div></div></div>');
+  }
+  var rc=document.getElementById("rc-"+postId); if(rc) rc.textContent=p.comments.length;
+  inp.value="";
+}
+function delComment(postId,cId) {
+  var meId=localStorage.getItem(APP_SESSION_KEY);
+  var posts=getPosts();
+  var p=posts.find(function(x){return x.id===postId;}); if(!p) return;
+  p.comments=p.comments.filter(function(c){return !(c.id===cId&&c.authorId===meId);});
+  savePosts(posts);
+  var el=document.getElementById("cmt-"+cId); if(el) el.remove();
+  var rc=document.getElementById("rc-"+postId); if(rc) rc.textContent=p.comments.length;
+}
+function delPost(postId) {
+  var meId=localStorage.getItem(APP_SESSION_KEY);
+  if(!confirm("Delete this pulse?")) return;
+  savePosts(getPosts().filter(function(p){return !(p.id===postId&&p.authorId===meId);}));
+  var el=document.getElementById("post-"+postId); if(el) el.remove();
+  renderProfile();
+}
+
+// ── Auth ────────────────────────────────────────────────────
+if(!localStorage.getItem(APP_SESSION_KEY)) { location.href="login.html"; }
+var SESSION_ID = localStorage.getItem(APP_SESSION_KEY);
+var ME = getUserById(SESSION_ID);
+if(!ME) { location.href="login.html"; }
+
+var params   = new URLSearchParams(window.location.search);
+var targetId = params.get("id") || ME.id;
+var isOwn    = targetId === ME.id;
+
+// ── Sidebar ────────────────────────────────────────────────
+function buildSidebar() {
+  var el=document.getElementById("appSidebar"); if(!el) return;
+  var pc=getPosts().filter(function(p){return p.authorId===ME.id;}).length;
+  var active = isOwn ? " active" : "";
+  el.innerHTML=
+    '<div class="sidebar-logo"><a href="feed.html"><svg viewBox="0 0 24 24" fill="#8b5cf6" style="width:28px;height:28px"><path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13Z"/></svg></a></div>'
+    +'<nav class="sidebar-nav">'
+    +'<a href="feed.html" class="nav-item"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M21.591 7.146L12.52 1.157c-.316-.21-.724-.21-1.04 0l-9.071 5.99c-.26.173-.409.456-.409.757v13.183c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913v-7.075h3.008v7.075c0 .502.418.913.929.913h6.638c.511 0 .929-.41.929-.913V7.904c0-.301-.158-.584-.409-.758z"/></svg><span>Home</span></a>'
+    +'<a href="profile.html?id='+ME.id+'" class="nav-item'+active+'"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M5.651 19h12.698c-.337-1.8-1.023-3.21-1.945-4.19C15.318 13.65 13.838 13 12 13s-3.317.65-4.404 1.81c-.922.98-1.608 2.39-1.945 4.19zm.486-5.56C7.627 11.85 9.648 11 12 11s4.373.85 5.863 2.44c1.477 1.58 2.366 3.8 2.632 6.46l.11 1.1H3.395l.11-1.1c.266-2.66 1.155-4.88 2.632-6.46zM12 4c-1.105 0-2 .9-2 2s.895 2 2 2 2-.9 2-2-.895-2-2-2zM8 6c0-2.21 1.791-4 4-4s4 1.79 4 4-1.791 4-4 4-4-1.79-4-4z"/></svg><span>Profile</span></a>'
+    +'</nav>'
+    +'<a href="feed.html" class="nav-post-btn"><span>Pulse it</span></a>'
+    +'<a href="profile.html?id='+ME.id+'" class="sidebar-profile">'+makeAv(ME,40)
+    +'<div class="sidebar-profile-info"><div class="sidebar-profile-name">'+escapeHtml(ME.name)+'</div>'
+    +'<div class="sidebar-profile-handle">@'+escapeHtml(ME.username)+' &middot; '+pc+' pulses</div></div></a>'
+    +'<button id="logoutBtn" style="margin:8px;width:calc(100% - 16px);background:transparent;border:1px solid var(--color-border);color:var(--color-text-secondary);border-radius:9999px;padding:10px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;">Log out</button>';
+  document.getElementById("logoutBtn").addEventListener("click",function(){
+    localStorage.removeItem(APP_SESSION_KEY); location.href="login.html";
+  });
+}
+buildSidebar();
+
+// ── Render profile ──────────────────────────────────────────
+function renderProfile() {
+  var users    = getUsers();
+  var user     = users.find(function(u){return u.id===targetId;});
+  if(!user) { document.getElementById("profileHeader").innerHTML='<p style="padding:20px">User not found.</p>'; return; }
+
+  // Get posts for this user
+  var posts = getPosts().filter(function(p){return p.authorId===targetId;}).sort(function(a,b){return b.timestamp-a.timestamp;});
+
+  var followers    = users.filter(function(u){return (u.following||[]).indexOf(targetId)!==-1;});
+  var meUser       = users.find(function(u){return u.id===ME.id;})||ME;
+  var following    = (meUser.following||[]).indexOf(targetId)!==-1;
+  var followingList= (user.following||[]).map(function(id){return users.find(function(u){return u.id===id;});}).filter(Boolean);
+
+  document.title = user.name+" / Pulse";
+  var hn=document.getElementById("headerName"); if(hn) hn.textContent=user.name;
+  var hc=document.getElementById("headerPostCount"); if(hc) hc.textContent=posts.length+" pulses";
+
+  var bg=avatarGrad(user.id);
+  var avInner=(user.profilePic&&user.profilePic.length>3)
+    ? '<img src="'+user.profilePic+'" style="width:100%;height:100%;border-radius:50%;object-fit:cover;" onerror="this.style.display=\'none\'">'
+    : '<span style="font-size:36px;font-weight:800;color:#fff;">'+user.name[0].toUpperCase()+'</span>';
+
+  var actionBtn=isOwn
+    ? '<button class="btn btn-outline btn-sm" id="editBtn">Edit profile</button>'
+    : '<button class="btn '+(following?"btn-outline":"btn-primary")+' btn-sm" id="followBtn">'+(following?"Following":"Follow")+'</button>';
+
+  var ph=document.getElementById("profileHeader");
+  ph.innerHTML=
+    '<div class="profile-avatar-wrapper">'
+    +'<div class="profile-avatar" style="background:'+bg+';display:flex;align-items:center;justify-content:center;overflow:hidden;">'+avInner+'</div>'
+    +'<div class="profile-actions">'+actionBtn+'</div>'
+    +'</div>'
+    +'<h1 class="profile-name">'+escapeHtml(user.name)+'</h1>'
+    +'<div class="profile-handle">@'+escapeHtml(user.username)+'</div>'
+    +(user.bio?'<p class="profile-bio">'+escapeHtml(user.bio)+'</p>':'')
+    +'<div class="profile-meta"><span class="profile-meta-item">Joined '+new Date(user.timestamp).toLocaleDateString("en-US",{month:"long",year:"numeric"})+'</span></div>'
+    +'<div class="profile-stats">'
+    +'<a href="#" id="openFollowing"><span class="profile-stat-count">'+followingList.length+'</span> Following</a>'
+    +'<a href="#" id="openFollowers"><span class="profile-stat-count">'+followers.length+'</span> Followers</a>'
+    +'</div>';
+
+  if(isOwn) {
+    document.getElementById("editBtn").addEventListener("click",function(){
+      var u=getUserById(ME.id);
+      document.getElementById("editName").value   = u.name;
+      document.getElementById("editBio").value    = u.bio||"";
+      document.getElementById("editPicUrl").value = u.profilePic||"";
+      document.getElementById("editSection").style.display="block";
+    });
+  } else {
+    document.getElementById("followBtn").addEventListener("click",function(){
+      var us=getUsers();
+      var mu=us.find(function(u){return u.id===ME.id;});
+      if(mu){ var idx=(mu.following||[]).indexOf(targetId); if(idx===-1)mu.following.push(targetId);else mu.following.splice(idx,1); saveUsers(us); }
+      renderProfile();
+    });
+  }
+
+  document.getElementById("openFollowing").addEventListener("click",function(e){e.preventDefault();showModal("Following",followingList);});
+  document.getElementById("openFollowers").addEventListener("click",function(e){e.preventDefault();showModal("Followers",followers);});
+
+  // ── Render posts ──────────────────────────────────────────
+  var pp=document.getElementById("profilePosts");
+  if(posts.length===0) {
+    pp.innerHTML='<div class="empty-state"><h3>No pulses yet</h3><p>Nothing posted yet.</p></div>';
+  } else {
+    pp.innerHTML=posts.map(function(p){return renderPost(p,ME);}).join("");
+  }
+
+  // right panel
+  renderRight();
+}
+
+// ── Modal ───────────────────────────────────────────────────
+function showModal(title,users) {
+  var old=document.getElementById("uModal"); if(old) old.remove();
+  var rows=users.map(function(u){
+    var bg=avatarGrad(u.id);
+    return '<a href="profile.html?id='+u.id+'" style="display:flex;align-items:center;gap:12px;padding:12px 16px;border-bottom:1px solid var(--color-border);text-decoration:none;" onmouseover="this.style.background=\'var(--color-bg-hover)\'" onmouseout="this.style.background=\'transparent\'">'
+      +'<div style="width:40px;height:40px;border-radius:50%;background:'+bg+';display:flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:16px;">'+u.name[0].toUpperCase()+'</div>'
+      +'<div><div style="font-weight:700;font-size:14px;color:var(--color-text-primary);">'+escapeHtml(u.name)+'</div>'
+      +'<div style="font-size:12px;color:var(--color-text-secondary);">@'+escapeHtml(u.username)+'</div></div></a>';
+  }).join("");
+  var m=document.createElement("div");
+  m.id="uModal";
+  m.style.cssText="position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px;";
+  m.innerHTML='<div style="background:var(--color-bg-base);border:1px solid var(--color-border);border-radius:16px;width:100%;max-width:420px;max-height:70vh;overflow-y:auto;">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;padding:16px;border-bottom:1px solid var(--color-border);position:sticky;top:0;background:var(--color-bg-base);">'
+    +'<h2 style="font-size:18px;font-weight:700;">'+title+'</h2>'
+    +'<button onclick="document.getElementById(\'uModal\').remove()" style="background:none;border:none;cursor:pointer;color:var(--color-text-secondary);font-size:20px;">&#10005;</button>'
+    +'</div>'+(rows||'<p style="padding:20px;color:var(--color-text-secondary);text-align:center;">Nobody here yet.</p>')+'</div>';
+  m.addEventListener("click",function(e){if(e.target===m)m.remove();});
+  document.body.appendChild(m);
+}
+
+// ── Edit form ───────────────────────────────────────────────
+document.getElementById("editForm").addEventListener("submit",function(e){
+  e.preventDefault();
+  var users=getUsers();
+  var u=users.find(function(x){return x.id===ME.id;});
+  var name=document.getElementById("editName").value.trim();
+  var bio=document.getElementById("editBio").value.trim();
+  var pw=document.getElementById("editPassword").value;
+  var pic=document.getElementById("editPicUrl").value.trim();
+  if(!name) return;
+  u.name=name; u.bio=bio; u.profilePic=pic;
+  if(pw&&pw.length>=6) u.password=pw;
+  saveUsers(users);
+  ME=getUserById(ME.id); // refresh ME
+  document.getElementById("editSection").style.display="none";
+  buildSidebar();
+  renderProfile();
+});
+document.getElementById("cancelEditBtn").addEventListener("click",function(){
+  document.getElementById("editSection").style.display="none";
+});
+
+// ── Right panel ─────────────────────────────────────────────
+function renderRight() {
+  var rp=document.getElementById("rightPanel"); if(!rp) return;
+  var allU=getUsers();
+  var meU=allU.find(function(u){return u.id===ME.id;})||ME;
+  var sugg=allU.filter(function(u){return u.id!==ME.id&&(meU.following||[]).indexOf(u.id)===-1;}).slice(0,4);
+  var sr=sugg.map(function(u){
+    var bg=avatarGrad(u.id);
+    return '<div class="follow-item"><div class="follow-avatar" style="background:'+bg+';display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px;color:#fff;border-radius:50%;">'+u.name[0].toUpperCase()+'</div>'
+      +'<div class="follow-info"><a href="profile.html?id='+u.id+'" class="follow-name">'+escapeHtml(u.name)+'</a>'
+      +'<div class="follow-handle">@'+escapeHtml(u.username)+'</div></div>'
+      +'<button class="btn-follow" data-uid="'+u.id+'">Follow</button></div>';
+  }).join("");
+  rp.innerHTML='<div class="search-box"><div class="search-input-wrapper">'
+    +'<svg viewBox="0 0 24 24" style="position:absolute;left:16px;width:16px;height:16px;fill:var(--color-text-secondary);pointer-events:none"><path d="M10.25 3.75c-3.59 0-6.5 2.91-6.5 6.5s2.91 6.5 6.5 6.5c1.795 0 3.419-.726 4.596-1.904 1.178-1.177 1.904-2.801 1.904-4.596 0-3.59-2.91-6.5-6.5-6.5zm-8.5 6.5c0-4.694 3.806-8.5 8.5-8.5s8.5 3.806 8.5 8.5c0 1.986-.682 3.815-1.824 5.262l4.781 4.781-1.414 1.414-4.781-4.781c-1.447 1.142-3.276 1.824-5.262 1.824-4.694 0-8.5-3.806-8.5-8.5z"/></svg>'
+    +'<input class="search-input" placeholder="Search Pulse"/></div></div>'
+    +(sr?'<div class="sidebar-box"><div class="sidebar-box-header">You might like</div>'+sr+'</div>':'')
+    +'<div class="right-footer"><div class="right-footer-links"><a href="#">Terms</a><a href="#">Privacy</a><a href="#">&#169; 2026 Pulse</a></div></div>';
+
+  rp.querySelectorAll(".btn-follow[data-uid]").forEach(function(btn){
+    btn.addEventListener("click",function(){
+      var users=getUsers();
+      var mu=users.find(function(u){return u.id===ME.id;});
+      if(mu&&mu.following.indexOf(btn.dataset.uid)===-1){mu.following.push(btn.dataset.uid);saveUsers(users);}
+      renderProfile();
+    });
+  });
+}
+
+// ── Init ─────────────────────────────────────────────────────
+renderProfile();
+</script>
+</body>
 </html>

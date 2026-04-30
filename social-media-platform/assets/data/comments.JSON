@@ -1,0 +1,44 @@
+{
+  "comments": {
+    "c1": {
+      "id": "c1",
+      "postId": "101",
+      "userId": "2",
+      "username": "Sarah Chen",
+      "content": "I've been using Figma tokens + Storybook. Highly recommend!",
+      "createdAt": "2026-03-26T09:00:00.000Z"
+    },
+    "c2": {
+      "id": "c2",
+      "postId": "101",
+      "userId": "3",
+      "username": "John Smith",
+      "content": "Accessibility-first design is the way to go! Have you tried axe DevTools?",
+      "createdAt": "2026-03-26T09:30:00.000Z"
+    },
+    "c3": {
+      "id": "c3",
+      "postId": "102",
+      "userId": "1",
+      "username": "Alex Johnson",
+      "content": "That sounds amazing! Would love to see a demo.",
+      "createdAt": "2026-03-25T15:00:00.000Z"
+    },
+    "c4": {
+      "id": "c4",
+      "postId": "103",
+      "userId": "1",
+      "username": "Alex Johnson",
+      "content": "Welcome to the TypeScript club! 🎉",
+      "createdAt": "2026-03-24T10:00:00.000Z"
+    },
+    "c5": {
+      "id": "c5",
+      "postId": "103",
+      "userId": "2",
+      "username": "Sarah Chen",
+      "content": "TypeScript is a game changer! Check out the official docs, they're excellent.",
+      "createdAt": "2026-03-24T11:00:00.000Z"
+    }
+  }
+}

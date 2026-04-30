@@ -1,0 +1,36 @@
+{
+  "posts": [
+    {
+      "id": "101",
+      "userId": "1",
+      "content": "Exploring new UX patterns today! The intersection of design systems and accessibility is where the real magic happens. What tools are you all using? 🎨",
+      "likes": ["2", "3"],
+      "comments": ["c1", "c2"],
+      "createdAt": "2026-03-26T08:00:00.000Z"
+    },
+    {
+      "id": "102",
+      "userId": "2",
+      "content": "Just shipped a major update to our design system. New component library has 50+ components with full dark mode support! 🚀",
+      "likes": ["1"],
+      "comments": ["c3"],
+      "createdAt": "2026-03-25T14:00:00.000Z"
+    },
+    {
+      "id": "103",
+      "userId": "3",
+      "content": "Started learning TypeScript this week. Already can't imagine going back to plain JavaScript. The type safety alone is worth it!",
+      "likes": ["1", "2"],
+      "comments": ["c4", "c5"],
+      "createdAt": "2026-03-24T09:00:00.000Z"
+    },
+    {
+      "id": "104",
+      "userId": "1",
+      "content": "Just published my new article on building responsive layouts with CSS Grid. Check it out! The key insight: stop thinking in pixels, start thinking in content. 📝",
+      "likes": ["2", "3"],
+      "comments": [],
+      "createdAt": "2026-03-23T16:00:00.000Z"
+    }
+  ]
+}

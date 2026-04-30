@@ -1,84 +1,52 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign up / X</title>
-    <link rel="stylesheet" href="assets/css/base.css" />
-    <link rel="stylesheet" href="assets/css/layout.css" />
-    <link rel="stylesheet" href="assets/css/components.css" />
-    <link rel="stylesheet" href="assets/css/responsive.css" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Sign up / Pulse</title>
+    <link rel="stylesheet" href="assets/css/base.css"/>
+    <link rel="stylesheet" href="assets/css/layout.css"/>
+    <link rel="stylesheet" href="assets/css/components.css"/>
+    <link rel="stylesheet" href="assets/css/responsive.css"/>
   </head>
   <body class="auth-page">
-    <main class="auth-container">
-      <!-- Left – Logo -->
-      <div class="auth-left">
-        <svg class="logo-x" viewBox="0 0 24 24" aria-hidden="true">
-          <path
-            d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"
-          />
+    <main class="auth-container" style="flex-direction:column;align-items:center;max-width:440px;margin:0 auto;">
+      <div style="text-align:center;margin-bottom:32px;">
+        <svg viewBox="0 0 24 24" fill="#8b5cf6" style="width:48px;height:48px;margin:0 auto 12px;">
+          <path d="M13 2L4.5 13.5H11L10 22L19.5 10.5H13L13 2Z"/>
         </svg>
+        <h1 style="font-size:28px;font-weight:800;color:#f0eeff;">Join Pulse</h1>
+        <p style="color:#6b6b8a;font-size:14px;margin-top:6px;">Share moments. Fade away. Or stay forever.</p>
       </div>
-
-      <!-- Right – Form -->
-      <div class="auth-right">
-        <h1 class="auth-subtitle">Create your account</h1>
-
-        <form id="registerForm" class="auth-form">
+      <div style="width:100%;">
+        <form id="registerForm" class="auth-form" novalidate style="max-width:100%;">
           <div class="form-group">
-            <input
-              type="text"
-              id="regName"
-              name="name"
-              class="form-input"
-              placeholder=" "
-              required
-            />
-            <label for="regName" class="form-label">Name</label>
+            <input type="text" id="regName" name="name" class="form-input" placeholder=" " required/>
+            <label for="regName" class="form-label">Full name</label>
           </div>
           <div class="form-group">
-            <input
-              type="text"
-              id="regUsername"
-              name="username"
-              class="form-input"
-              placeholder=" "
-              required
-            />
+            <input type="text" id="regUsername" name="username" class="form-input" placeholder=" " required/>
             <label for="regUsername" class="form-label">Username</label>
           </div>
           <div class="form-group">
-            <input
-              type="email"
-              id="regEmail"
-              name="email"
-              class="form-input"
-              placeholder=" "
-              required
-            />
-            <label for="regEmail" class="form-label">Email</label>
+            <input type="email" id="regEmail" name="email" class="form-input" placeholder=" " required/>
+            <label for="regEmail" class="form-label">Email address</label>
           </div>
           <div class="form-group">
-            <input
-              type="password"
-              id="regPassword"
-              name="password"
-              class="form-input"
-              placeholder=" "
-              required
-            />
-            <label for="regPassword" class="form-label">Password</label>
+            <input type="password" id="regPassword" name="password" class="form-input" placeholder=" " required/>
+            <label for="regPassword" class="form-label">Password (6+ characters)</label>
           </div>
-
-          <button type="submit" class="btn btn-primary btn-full btn-lg">
-            Create account
-          </button>
+          <button type="submit" class="btn btn-primary btn-full" style="margin-top:8px;">Create account</button>
         </form>
-
-        <div class="auth-footer">
-          <p>Already have an account? <a href="login.html">Log in</a></p>
+        <div class="auth-footer" style="text-align:center;margin-top:20px;">
+          <p>Already on Pulse? <a href="login.html" style="color:#8b5cf6;font-weight:600;">Log in</a></p>
         </div>
       </div>
     </main>
+    <script src="assets/js/config.js"></script>
+    <script src="assets/js/storage.js"></script>
+    <script src="assets/js/seed.js"></script>
+    <script src="assets/js/auth.js"></script>
   </body>
 </html>
+ 
