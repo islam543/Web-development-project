@@ -30,7 +30,9 @@ Option A — PostgreSQL via Neon (recommended):
 
 Go to neon.tech and create a free account
 Create a new project and copy the connection string:
-postgresql://neondb_owner:npg_1a4UIHmStwDu@ep-round-glade-amrx9efc-pooler.c-5.us-east-1.aws.neon.tech/neondb?sslmode=require&channel_binding=require
+postgresql://username:password@ep-xxx.us-east-2.aws.neon.tech/neondb?sslmode=require
+-Paste it as the DATABASE_URL value
+
 
 Option B — SQLite (local only):
 
