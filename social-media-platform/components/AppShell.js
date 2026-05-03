@@ -27,17 +27,10 @@ export default function AppShell({ user, rightPanel, children }) {
           </CardHeader>
         </Card>
 
-        <Navbar
-          maxWidth="full"
-          position="static"
-          isBlurred={false}
-          className="rounded-large border border-divider bg-content1"
-        >
-          <NavbarBrand className="pb-1 text-sm text-default-500">
-            Navigation
-          </NavbarBrand>
-          <NavbarContent className="flex-col items-stretch gap-1 pb-2">
-            <NavbarItem>
+        <Card shadow="sm">
+          <CardBody className="p-2">
+            <p className="pb-1 px-2 text-sm text-default-500">Navigation</p>
+            <nav className="flex flex-col gap-1">
               <HeroLink
                 as={Link}
                 href="/feed"
@@ -47,8 +40,6 @@ export default function AppShell({ user, rightPanel, children }) {
               >
                 Feed
               </HeroLink>
-            </NavbarItem>
-            <NavbarItem>
               <HeroLink
                 as={Link}
                 href={`/users/${user.username}`}
@@ -58,8 +49,6 @@ export default function AppShell({ user, rightPanel, children }) {
               >
                 My Profile
               </HeroLink>
-            </NavbarItem>
-            <NavbarItem>
               <HeroLink
                 as={Link}
                 href="/stats"
@@ -69,9 +58,9 @@ export default function AppShell({ user, rightPanel, children }) {
               >
                 Statistics
               </HeroLink>
-            </NavbarItem>
-          </NavbarContent>
-        </Navbar>
+            </nav>
+          </CardBody>
+        </Card>
 
         <Card shadow="sm">
           <CardBody className="gap-3">
@@ -88,9 +77,7 @@ export default function AppShell({ user, rightPanel, children }) {
                 <p className="text-sm text-default-500">@{user.username}</p>
               </div>
             </div>
-
             <ThemeToggle />
-
             <form action="/api/auth/logout" method="post">
               <Button type="submit" variant="bordered" color="default" fullWidth>
                 Log out
@@ -101,7 +88,6 @@ export default function AppShell({ user, rightPanel, children }) {
       </aside>
 
       <main className="flex min-w-0 flex-col gap-4">{children}</main>
-
       <aside className="flex flex-col gap-4 lg:sticky lg:top-4">{rightPanel}</aside>
     </div>
   );

@@ -19,7 +19,19 @@ function normalizePost(post) {
 }
 
 export async function getFeedPosts(viewerId) {
+  const follows = await prisma.follow.findMany({
+    where: { followerId: viewerId },
+    select: { followeeId: true },
+  });
+  const followedIds = follows.map((f) => f.followeeId);
+
   const posts = await prisma.post.findMany({
+    where: {
+      OR: [
+        { authorId: { in: followedIds } },
+        { authorId: viewerId },
+      ],
+    },
     orderBy: { createdAt: "desc" },
     take: 60,
     include: {
@@ -29,9 +41,10 @@ export async function getFeedPosts(viewerId) {
       reposts: { where: { userId: viewerId }, select: { userId: true } },
     },
   });
-
   return posts.map(normalizePost);
 }
+
+
 
 export async function createPost({ authorId, content, imageUrl }) {
   return prisma.post.create({
