@@ -2,7 +2,9 @@ import Link from "next/link";
 import { notFound, redirect } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import PostCard from "@/components/PostCard";
+import ProfileSummaryCard from "@/components/ProfileSummaryCard";
 import UserSearchPanel from "@/components/UserSearchPanel";
+import { Button, Card, CardBody } from "@heroui/react";
 import { getCurrentUser } from "@/lib/session";
 import {
   getProfileByUsername,
@@ -46,15 +48,21 @@ export default async function UserProfilePage({ params, searchParams }) {
         <p className="muted">@{profile.username}</p>
         {profile.bio ? <p>{profile.bio}</p> : null}
         <p className="muted tiny">
-          {profile._count.followers} followers · {profile._count.following} following · {profile._count.posts} posts
+          {profile._count.followers} followers · {profile._count.following}{" "}
+          following · {profile._count.posts} posts
         </p>
+
         {isSelf ? null : (
           <form
             action={`/api/users/${profile.username}/follow`}
             method="post"
             className="inline-form"
           >
-            <input type="hidden" name="redirectTo" value={`/users/${profile.username}`} />
+            <input
+              type="hidden"
+              name="redirectTo"
+              value={`/users/${profile.username}`}
+            />
             <button className="secondary-btn" type="submit">
               {profile.isFollowedByViewer ? "Unfollow" : "Follow"}
             </button>
@@ -65,7 +73,11 @@ export default async function UserProfilePage({ params, searchParams }) {
       <section className="card">
         <h3 className="section-title">Posts by {profile.name}</h3>
         {profile.posts.length === 0 ? (
-          <p className="muted">No posts yet.</p>
+          <Card shadow="sm">
+            <CardBody>
+              <p className="text-default-500">No posts yet.</p>
+            </CardBody>
+          </Card>
         ) : (
           profile.posts.map((post) => (
             <PostCard
@@ -78,11 +90,13 @@ export default async function UserProfilePage({ params, searchParams }) {
         )}
       </section>
 
-      <section className="card">
-        <Link className="link-btn" href="/feed">
-          Back to feed
-        </Link>
-      </section>
+      <Card shadow="sm">
+        <CardBody>
+          <Button as={Link} href="/feed" variant="flat" color="default" className="self-start">
+            Back to feed
+          </Button>
+        </CardBody>
+      </Card>
     </AppShell>
   );
 }

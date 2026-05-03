@@ -1,0 +1,13 @@
+Error: Element type is invalid: expected a string (for built-in components) or a class/function (for composite components) but got: undefined.
+    at nM (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:61600)
+    at nM (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:61547)
+    at nL (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+    at nL (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539)
+    at nM (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:58561)
+    at nL (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:64547)
+    at nB (C:\Users\ialab\Documents\Web Development\Web-development-project\social-media-platform\node_modules\next\dist\compiled\next-server\app-page.runtime.prod.js:12:67539) {
+  digest: '3990557187'
+}
