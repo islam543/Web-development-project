@@ -46,21 +46,15 @@ export default async function UserProfilePage({ params, searchParams }) {
         <p className="muted">@{profile.username}</p>
         {profile.bio ? <p>{profile.bio}</p> : null}
         <p className="muted tiny">
-          {profile._count.followers} followers · {profile._count.following}{" "}
-          following · {profile._count.posts} posts
+          {profile._count.followers} followers · {profile._count.following} following · {profile._count.posts} posts
         </p>
-
         {isSelf ? null : (
           <form
             action={`/api/users/${profile.username}/follow`}
             method="post"
             className="inline-form"
           >
-            <input
-              type="hidden"
-              name="redirectTo"
-              value={`/users/${profile.username}`}
-            />
+            <input type="hidden" name="redirectTo" value={`/users/${profile.username}`} />
             <button className="secondary-btn" type="submit">
               {profile.isFollowedByViewer ? "Unfollow" : "Follow"}
             </button>
@@ -78,6 +72,7 @@ export default async function UserProfilePage({ params, searchParams }) {
               key={post.id}
               post={post}
               redirectTo={`/users/${profile.username}`}
+              currentUserId={currentUser.id}
             />
           ))
         )}

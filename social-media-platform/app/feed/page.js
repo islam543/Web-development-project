@@ -40,7 +40,12 @@ export default async function FeedPage({ searchParams }) {
           </section>
         ) : (
           posts.map((post) => (
-            <PostCard key={post.id} post={post} redirectTo="/feed" />
+            <PostCard
+              key={post.id}
+              post={post}
+              redirectTo="/feed"
+              currentUserId={currentUser.id}
+            />
           ))
         )}
       </section>

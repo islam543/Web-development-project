@@ -22,8 +22,10 @@ export default async function PostDetailPage({ params, searchParams }) {
   const currentUser = await getCurrentUser();
   if (!currentUser) redirect("/login");
 
+  const postId = params.postId;
+
   const [post, users] = await Promise.all([
-    getPostDetail(params.postId, currentUser.id),
+    getPostDetail(postId, currentUser.id),
     searchUsers({
       query: searchParams?.q?.trim() ?? "",
       viewerId: currentUser.id,
@@ -39,7 +41,7 @@ export default async function PostDetailPage({ params, searchParams }) {
         <UserSearchPanel
           query={searchParams?.q?.trim() ?? ""}
           users={users}
-          redirectTo={`/post/${params.postId}`}
+          redirectTo={`/post/${postId}`}
         />
       }
     >
@@ -47,7 +49,12 @@ export default async function PostDetailPage({ params, searchParams }) {
         <h2 className="section-title">Post details</h2>
       </section>
 
-      <PostCard post={post} redirectTo={`/post/${params.postId}`} showDetailLink={false} />
+      <PostCard
+        post={post}
+        redirectTo={`/post/${postId}`}
+        showDetailLink={false}
+        currentUserId={currentUser.id}
+      />
 
       <section className="card">
         <h3 className="section-title">Reply to this post</h3>

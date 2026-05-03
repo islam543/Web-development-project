@@ -7,7 +7,9 @@ function formatDate(date) {
   }).format(new Date(date));
 }
 
-export default function PostCard({ post, redirectTo, showDetailLink = true }) {
+export default function PostCard({ post, redirectTo, showDetailLink = true, currentUserId }) {
+  const isOwn = currentUserId && post.author?.id === currentUserId;
+
   return (
     <article className="post-card">
       <header className="post-header">
@@ -16,9 +18,28 @@ export default function PostCard({ post, redirectTo, showDetailLink = true }) {
         </Link>
         <span className="muted">@{post.author.username}</span>
         <span className="muted">· {formatDate(post.createdAt)}</span>
+        {isOwn && (
+          <form
+            action={`/api/posts/${post.id}/delete`}
+            method="post"
+            style={{ marginLeft: "auto" }}
+          >
+            <input type="hidden" name="redirectTo" value={redirectTo} />
+            <button
+                className="icon-btn"
+                type="submit"
+                style={{ color: "inherit" }}
+
+>
+                   Delete
+                  </button>
+
+          </form>
+        )}
       </header>
 
       <p className="post-content">{post.content}</p>
+
       {post.imageUrl ? (
         // eslint-disable-next-line @next/next/no-img-element
         <img className="post-image" src={post.imageUrl} alt="Post attachment" />
@@ -35,8 +56,7 @@ export default function PostCard({ post, redirectTo, showDetailLink = true }) {
         <form action={`/api/posts/${post.id}/repost`} method="post">
           <input type="hidden" name="redirectTo" value={redirectTo} />
           <button className="icon-btn" type="submit">
-            {post.repostedByViewer ? "Undo repost" : "Repost"} (
-            {post._count.reposts})
+            {post.repostedByViewer ? "Undo repost" : "Repost"} ({post._count.reposts})
           </button>
         </form>
 
