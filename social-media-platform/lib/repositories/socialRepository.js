@@ -269,11 +269,11 @@ export async function getPlatformStats() {
   const [avgFollowersRow] = await prisma.$queryRaw`
     SELECT COALESCE(AVG(follower_count), 0) AS value
     FROM (
-      SELECT u.id, COUNT(f.followerId) AS follower_count
+      SELECT u.id, COUNT(f."followerId") AS follower_count
       FROM "User" u
-      LEFT JOIN "Follow" f ON f.followeeId = u.id
+      LEFT JOIN "Follow" f ON f."followeeId" = u.id
       GROUP BY u.id
-    );
+    ) sub;
   `;
 
   const [avgPostsRow] = await prisma.$queryRaw`
@@ -281,19 +281,19 @@ export async function getPlatformStats() {
     FROM (
       SELECT u.id, COUNT(p.id) AS post_count
       FROM "User" u
-      LEFT JOIN "Post" p ON p.authorId = u.id
+      LEFT JOIN "Post" p ON p."authorId" = u.id
       GROUP BY u.id
-    );
+    ) sub;
   `;
 
   const [avgLikesPerPostRow] = await prisma.$queryRaw`
     SELECT COALESCE(AVG(like_count), 0) AS value
     FROM (
-      SELECT p.id, COUNT(l.userId) AS like_count
+      SELECT p.id, COUNT(l."userId") AS like_count
       FROM "Post" p
-      LEFT JOIN "Like" l ON l.postId = p.id
+      LEFT JOIN "Like" l ON l."postId" = p.id
       GROUP BY p.id
-    );
+    ) sub;
   `;
 
   const [mostActiveRow] = await prisma.$queryRaw`
@@ -304,17 +304,17 @@ export async function getPlatformStats() {
       COALESCE(p.post_count, 0) + COALESCE(r.reply_count, 0) AS activity
     FROM "User" u
     LEFT JOIN (
-      SELECT authorId, COUNT(*) AS post_count
+      SELECT "authorId", COUNT(*) AS post_count
       FROM "Post"
-      WHERE createdAt >= datetime('now', '-90 days')
-      GROUP BY authorId
-    ) p ON p.authorId = u.id
+      WHERE "createdAt" >= NOW() - INTERVAL '90 days'
+      GROUP BY "authorId"
+    ) p ON p."authorId" = u.id
     LEFT JOIN (
-      SELECT authorId, COUNT(*) AS reply_count
+      SELECT "authorId", COUNT(*) AS reply_count
       FROM "Reply"
-      WHERE createdAt >= datetime('now', '-90 days')
-      GROUP BY authorId
-    ) r ON r.authorId = u.id
+      WHERE "createdAt" >= NOW() - INTERVAL '90 days'
+      GROUP BY "authorId"
+    ) r ON r."authorId" = u.id
     ORDER BY activity DESC
     LIMIT 1;
   `;
@@ -324,10 +324,10 @@ export async function getPlatformStats() {
       u.id,
       u.name,
       u.username,
-      COUNT(f.followerId) AS followers
+      COUNT(f."followerId") AS followers
     FROM "User" u
-    LEFT JOIN "Follow" f ON f.followeeId = u.id
-    GROUP BY u.id
+    LEFT JOIN "Follow" f ON f."followeeId" = u.id
+    GROUP BY u.id, u.name, u.username
     ORDER BY followers DESC
     LIMIT 1;
   `;
