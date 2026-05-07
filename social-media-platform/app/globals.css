@@ -2,3 +2,62 @@
 @plugin "../hero.ts";
 @source "../node_modules/@heroui/theme/dist/**/*.{js,ts,jsx,tsx}";
 @custom-variant dark (&:is(.dark *));
+
+/* Legacy component styles */
+.post-card {
+  @apply bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl p-4 mb-3 shadow-sm;
+}
+.post-header {
+  @apply flex flex-wrap items-center gap-2 mb-2;
+}
+.post-author {
+  @apply font-semibold hover:underline;
+}
+.post-content {
+  @apply text-sm mb-3 whitespace-pre-wrap;
+}
+.post-actions {
+  @apply flex gap-3 flex-wrap items-center;
+}
+.post-image {
+  @apply rounded-lg max-w-full mb-3;
+}
+.icon-btn {
+  @apply text-sm text-zinc-500 hover:text-zinc-900 dark:hover:text-white cursor-pointer bg-transparent border-none;
+}
+.muted {
+  @apply text-sm text-zinc-500;
+}
+.card {
+  @apply bg-white dark:bg-zinc-900 border border-zinc-200 dark:border-zinc-700 rounded-xl p-4 mb-3 shadow-sm;
+}
+.section-title {
+  @apply text-lg font-semibold mb-2;
+}
+.stack-list {
+  @apply flex flex-col gap-3;
+}
+.link-btn {
+  @apply text-blue-600 hover:underline text-sm;
+}
+.reply-card {
+  @apply bg-zinc-50 dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700 rounded-lg p-3 mb-2;
+}
+.stack-form {
+  @apply flex flex-col gap-3;
+}
+.textarea {
+  @apply w-full border border-zinc-200 dark:border-zinc-700 rounded-lg p-3 text-sm bg-white dark:bg-zinc-900 resize-none;
+}
+.primary-btn {
+  @apply bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700 cursor-pointer border-none self-start;
+}
+.secondary-btn {
+  @apply border border-zinc-300 dark:border-zinc-600 px-4 py-2 rounded-lg text-sm font-medium hover:bg-zinc-100 dark:hover:bg-zinc-800 cursor-pointer bg-transparent;
+}
+.tiny {
+  @apply text-xs;
+}
+.inline-form {
+  @apply inline;
+}

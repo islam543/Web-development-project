@@ -3,7 +3,6 @@ import { notFound, redirect } from "next/navigation";
 import AppShell from "@/components/AppShell";
 import PostCard from "@/components/PostCard";
 import UserSearchPanel from "@/components/UserSearchPanel";
-import { Button, Card, CardBody, CardHeader, Textarea } from "@heroui/react";
 import { getCurrentUser } from "@/lib/session";
 import {
   getPostDetail,
@@ -23,8 +22,10 @@ export default async function PostDetailPage({ params, searchParams }) {
   const currentUser = await getCurrentUser();
   if (!currentUser) redirect("/login");
 
+  const postId = params.postId;
+
   const [post, users] = await Promise.all([
-    getPostDetail(params.postId, currentUser.id),
+    getPostDetail(postId, currentUser.id),
     searchUsers({
       query: searchParams?.q?.trim() ?? "",
       viewerId: currentUser.id,
@@ -40,85 +41,67 @@ export default async function PostDetailPage({ params, searchParams }) {
         <UserSearchPanel
           query={searchParams?.q?.trim() ?? ""}
           users={users}
-          redirectTo={`/post/${params.postId}`}
+          redirectTo={`/post/${postId}`}
         />
       }
     >
-      <Card shadow="sm">
-        <CardHeader>
-          <h2 className="text-xl font-semibold">Post details</h2>
-        </CardHeader>
-      </Card>
+      <section className="card">
+        <h2 className="section-title">Post details</h2>
+      </section>
 
       <PostCard
         post={post}
-        redirectTo={`/post/${params.postId}`}
+        redirectTo={`/post/${postId}`}
         showDetailLink={false}
+        currentUserId={currentUser.id}
       />
 
-      <Card shadow="sm">
-        <CardHeader>
-          <h3 className="text-lg font-semibold">Reply to this post</h3>
-        </CardHeader>
-        <CardBody>
+      <section className="card">
+        <h3 className="section-title">Reply to this post</h3>
         <form
-          className="flex flex-col gap-3"
+          className="stack-form"
           action={`/api/posts/${post.id}/reply`}
           method="post"
         >
           <input type="hidden" name="redirectTo" value={`/post/${post.id}`} />
-          <Textarea
-            label="Your reply"
+          <textarea
+            className="textarea"
             name="content"
             placeholder="Write your reply..."
             maxLength={280}
-            isRequired
+            required
           />
-          <Button color="primary" type="submit" className="self-start">
+          <button className="primary-btn" type="submit">
             Reply
-          </Button>
+          </button>
         </form>
-        </CardBody>
-      </Card>
+      </section>
 
-      <Card shadow="sm">
-        <CardHeader>
-          <h3 className="text-lg font-semibold">Replies ({post._count.replies})</h3>
-        </CardHeader>
-        <CardBody className="gap-3">
+      <section className="card">
+        <h3 className="section-title">Replies ({post._count.replies})</h3>
         {post.replies.length === 0 ? (
-          <p className="text-default-500">No replies yet.</p>
+          <p className="muted">No replies yet.</p>
         ) : (
           post.replies.map((reply) => (
-            <article
-              className="rounded-large border border-divider bg-content2 p-3"
-              key={reply.id}
-            >
-              <header className="mb-2 flex flex-wrap items-center gap-2">
-                <Link className="font-semibold" href={`/users/${reply.author.username}`}>
+            <article className="reply-card" key={reply.id}>
+              <header className="post-header">
+                <Link className="post-author" href={`/users/${reply.author.username}`}>
                   {reply.author.name}
                 </Link>
-                <span className="text-sm text-default-500">
-                  @{reply.author.username}
-                </span>
-                <span className="text-sm text-default-500">
-                  · {formatDate(reply.createdAt)}
-                </span>
+                <span className="muted">@{reply.author.username}</span>
+                <span className="muted">· {formatDate(reply.createdAt)}</span>
               </header>
-              <p className="whitespace-pre-wrap">{reply.content}</p>
+              <p>{reply.content}</p>
             </article>
           ))
         )}
-        </CardBody>
-      </Card>
+      </section>
 
-      <Card shadow="sm">
-        <CardBody>
-          <Button as={Link} href="/feed" variant="flat" color="default" className="self-start">
-            Back to feed
-          </Button>
-        </CardBody>
-      </Card>
+      <section className="card">
+        <Link className="link-btn" href="/feed">
+          Back to feed
+        </Link>
+      </section>
     </AppShell>
   );
 }

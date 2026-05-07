@@ -43,14 +43,35 @@ export default async function UserProfilePage({ params, searchParams }) {
         />
       }
     >
-      <Card shadow="sm">
-        <CardBody>
-          <ProfileSummaryCard profile={profile} isSelf={isSelf} />
-        </CardBody>
-      </Card>
+      <section className="card">
+        <h2 className="section-title">{profile.name}</h2>
+        <p className="muted">@{profile.username}</p>
+        {profile.bio ? <p>{profile.bio}</p> : null}
+        <p className="muted tiny">
+          {profile._count.followers} followers · {profile._count.following}{" "}
+          following · {profile._count.posts} posts
+        </p>
 
-      <section className="flex flex-col gap-3">
-        <h3 className="text-lg font-semibold">Posts by {profile.name}</h3>
+        {isSelf ? null : (
+          <form
+            action={`/api/users/${profile.username}/follow`}
+            method="post"
+            className="inline-form"
+          >
+            <input
+              type="hidden"
+              name="redirectTo"
+              value={`/users/${profile.username}`}
+            />
+            <button className="secondary-btn" type="submit">
+              {profile.isFollowedByViewer ? "Unfollow" : "Follow"}
+            </button>
+          </form>
+        )}
+      </section>
+
+      <section className="card">
+        <h3 className="section-title">Posts by {profile.name}</h3>
         {profile.posts.length === 0 ? (
           <Card shadow="sm">
             <CardBody>
@@ -63,6 +84,7 @@ export default async function UserProfilePage({ params, searchParams }) {
               key={post.id}
               post={post}
               redirectTo={`/users/${profile.username}`}
+              currentUserId={currentUser.id}
             />
           ))
         )}
